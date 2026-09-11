@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viettel Slide Báo Cáo Quản Trị Công Nợ VTA & HĐ Chi Phí</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        viettel: {
+                            red: '#ee0033',
+                            darkred: '#cc002c',
+                            lightred: '#fef2f2',
+                            dark: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #0f172a; color: #f8fafc; overflow: hidden; }
+        .slide { display: none; height: 100vh; width: 100vw; padding: 2rem 4rem; box-sizing: border-box; }
+        .slide.active { display: flex; flex-direction: column; justify-content: space-between; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .card-box { background: white; color: #1e293b; border-radius: 1.25rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="select-none">
+
+    <!-- NAVIGATION HEADER BAR -->
+    <div class="fixed top-0 left-0 right-0 z-50 px-8 py-4 flex justify-between items-center bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="flex items-center gap-3">
+            <div class="bg-viettel-red text-white px-3 py-1 rounded-xl text-xs font-black tracking-tight">viettel</div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">BÁO CÁO QUẢN TRỊ TRỌNG TÂM CÔNG NỢ VTA & HĐ CHI PHÍ</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-bold text-slate-400">
+            <span id="slideIndicator">Slide 1 / 6</span>
+            <button onclick="prevSlide()" class="p-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="nextSlide()" class="p-2 bg-viettel-red hover:bg-viettel-darkred text-white rounded-lg transition"><i class="fa-solid fa-chevron-right"></i></button>
+            <a href="index.html" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-chart-line"></i> Dashboard Live</a>
+        </div>
+    </div>
+
+    <!-- MAIN SLIDES CONTAINER -->
+    <div class="pt-16 h-screen flex flex-col justify-center">
+
+        <!-- SLIDE 1: BÌA BÁO CÁO -->
+        <div class="slide active" id="slide1">
+            <div class="my-auto max-w-5xl mx-auto text-center space-y-6">
+                <div class="inline-block bg-viettel-red text-white px-6 py-2 rounded-2xl text-2xl font-black tracking-tighter shadow-lg">
+                    viettel <span class="text-xs font-normal opacity-90 tracking-normal ml-2">Theo cách của bạn</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black text-white leading-tight">
+                    BÁO CÁO QUẢN TRỊ & ĐÁNH GIÁ TRỌNG TÂM CÔNG NỢ VẬT TƯ A & HỢP ĐỒNG CHI PHÍ
+                </h1>
+                <p class="text-lg md:text-xl font-bold text-viettel-red">
+                    Phân Tích Tập Trung Nhà Thầu Đối Tác Lớn Nhất (VCC, ACT) & Cảnh Báo HĐ Chi Phí < 2025
+                </p>
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 text-slate-300 text-sm text-left max-w-3xl mx-auto space-y-2">
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-viettel-red"></i> <strong>Quy mô phân tích:</strong> 649 Hợp đồng / 12,834 Công trình toàn hệ thống.</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-amber-500"></i> <strong>Trọng tâm VTA Nguồn Đầu tư:</strong> 548.32 Tỷ VNĐ (2 ông lớn VCC & ACT chiếm 74.1%).</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-emerald-400"></i> <strong>Cảnh báo HĐ Chi phí cũ:</strong> 78 Hợp đồng phát sinh trước 2025 (14.78 Tỷ VNĐ).</p>
+                </div>
+                <div class="text-xs font-semibold text-slate-400 pt-4">
+                    Tập đoàn Công nghiệp - Viễn thông Quân đội (Viettel) | Dữ liệu cập nhật 09/2026
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: EXECUTIVE OVERVIEW -->
+        <div class="slide" id="slide2">
+            <div class="max-w-6xl mx-auto w-full space-y-6 my-auto">
+                <div class="border-l-4 border-viettel-red pl-4">
+                    <span class="text-xs font-bold text-viettel-red uppercase tracking-wider">TỔNG QUAN HỆ THỐNG</span>
+                    <h2 class="text-2xl font-black text-white">BỨC TRANH TOÀN CẢNH QUẢN LÝ HỢP ĐỒNG & CÔNG TRÌNH</h2>
+                </div>
+
+                <!-- 4 KPI CARDS -->
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="card-box p-5 border-l-4 border-slate-700">
+                        <div class="text-xs font-bold text-slate-400">TỔNG HỢP ĐỒNG</div>
+                        <div class="text-3xl font-black text-slate-900 mt-1">649 HĐ</div>
+                        <div class="text-xs font-semibold text-slate-500 mt-2">12,834 Công trình</div>
+                    </div>
+                    <div class="card-box p-5 border-l-4 border-viettel-red bg-red-50/50">
+                        <div class="text-xs font-bold text-viettel-red">TỒN VTA NGUỒN ĐẦU TƯ</div>
+                        <div class="text-3xl font-black text-viettel-red mt-1">548.32 Tỷ</div>
+                        <div class="text-xs font-semibold text-red-700 mt-2">150 HĐ Nguồn Đầu tư</div>
+                    </div>
+                    <div class="card-box p-5 border-l-4 border-amber-500">
+                        <div class="text-xs font-bold text-amber-700">TỔNG NGUỒN CHI PHÍ</div>
+                        <div class="text-3xl font-black text-amber-800 mt-1">64.73 Tỷ</div>
+                        <div class="text-xs font-semibold text-amber-700 mt-2">499 HĐ Nguồn Chi phí</div>
+                    </div>
+                    <div class="card-box p-5 border-l-4 border-rose-600 bg-rose-50/60">
+                        <div class="text-xs font-bold text-rose-800">🔥 HĐ CHI PHÍ < 2025</div>
+                        <div class="text-3xl font-black text-rose-700 mt-1">78 HĐ</div>
+                        <div class="text-xs font-semibold text-rose-800 mt-2">14.78 Tỷ (582 Công trình)</div>
+                    </div>
+                </div>
+
+                <!-- KEY TAKEAWAYS -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-slate-700 space-y-3">
+                    <h3 class="text-sm font-black text-viettel-red uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> 4 ĐIỂM RỦI RO CẦN TẬP TRUNG QUẢN TRỊ:
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4 text-xs text-slate-300">
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+                            <strong class="text-white">1. Công nợ VTA Đầu tư quy mô cực lớn:</strong> Tồn tới 548.32 Tỷ VNĐ (9,916 CT).
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+                            <strong class="text-white">2. Công nợ tập trung áp đảo ở TOP 2:</strong> VCC & ACT chiếm 74.1% tổng công nợ VTA toàn bộ Nguồn Đầu tư.
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+                            <strong class="text-white">3. Tồn đọng HĐ Chi phí cũ trước 2025:</strong> 78 HĐ chi phí cũ đọng lâu năm chưa thu hồi/nghiệm thu dứt điểm.
+                        </div>
+                        <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+                            <strong class="text-white">4. Siết kỷ luật KPI (Cột Q = "KHÔNG"):</strong> Công trình nào chưa sạch VTA sẽ lập tức bị tính VƯỚNG KPI.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: TRỌNG TÂM 1 - TỒN CÔNG NỢ VTA NGUỒN ĐẦU TƯ -->
+        <div class="slide" id="slide3">
+            <div class="max-w-6xl mx-auto w-full space-y-5 my-auto">
+                <div class="border-l-4 border-viettel-red pl-4">
+                    <span class="text-xs font-bold text-viettel-red uppercase tracking-wider">TRỌNG TÂM 1 (NGUỒN ĐẦU TƯ)</span>
+                    <h2 class="text-2xl font-black text-white">TOP NHÀ THẦU TỒN CÔNG NỢ VẬT TƯ A LỚN NHẤT (548.3 TỶ VNĐ)</h2>
+                </div>
+
+                <div class="grid grid-cols-12 gap-6 items-center">
+                    <!-- Table 5 Top VTA Contractors -->
+                    <div class="col-span-7 card-box p-4">
+                        <table class="w-full text-xs text-left">
+                            <thead class="bg-slate-900 text-white font-bold">
+                                <tr>
+                                    <th class="p-2.5 rounded-l-lg">Nhà Thầu Đối Tác</th>
+                                    <th class="p-2.5 text-right">Công Nợ VTA</th>
+                                    <th class="p-2.5 text-right">Tỷ Trọng</th>
+                                    <th class="p-2.5 text-center rounded-r-lg">Mức Độ Rủi Ro</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 font-semibold text-slate-800">
+                                <tr class="bg-red-50 font-bold">
+                                    <td class="p-2.5 text-viettel-red">TCT CP Công trình Viettel (VCC)</td>
+                                    <td class="p-2.5 text-right text-viettel-red">234.00 Tỷ</td>
+                                    <td class="p-2.5 text-right text-viettel-red">43.0%</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-viettel-red text-white text-[10px] font-black rounded">🔥 TOP 1</span></td>
+                                </tr>
+                                <tr class="bg-red-50/60 font-bold">
+                                    <td class="p-2.5 text-viettel-red">Công ty CP Viễn thông ACT</td>
+                                    <td class="p-2.5 text-right text-viettel-red">169.39 Tỷ</td>
+                                    <td class="p-2.5 text-right text-viettel-red">31.1%</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-rose-600 text-white text-[10px] font-black rounded">🔥 TOP 2</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">Công ty CP PT DV TLI</td>
+                                    <td class="p-2.5 text-right font-bold">43.77 Tỷ</td>
+                                    <td class="p-2.5 text-right">8.0%</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded">⚠️ Cảnh báo</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">Công ty TNHH Samaki Đông Dương</td>
+                                    <td class="p-2.5 text-right font-bold">28.21 Tỷ</td>
+                                    <td class="p-2.5 text-right">5.2%</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded">⚠️ Cảnh báo</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">CTY TNHH TMDV KT VT An Phát</td>
+                                    <td class="p-2.5 text-right font-bold">17.82 Tỷ</td>
+                                    <td class="p-2.5 text-right">3.3%</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[10px] font-bold rounded">Bình thường</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Highlight Card -->
+                    <div class="col-span-5 bg-gradient-to-br from-red-950 to-slate-900 p-6 rounded-2xl border border-viettel-red/40 space-y-4">
+                        <div class="text-lg font-black text-viettel-red flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye"></i> ĐÁNH TRỌNG TÂM QUẢN TRỊ:
+                        </div>
+                        <div class="space-y-3 text-xs text-slate-200">
+                            <div class="p-3 bg-red-900/30 rounded-xl border border-red-500/30">
+                                <strong class="text-white text-sm">74.1% Công Nợ Tập Trung Ở 2 Đơn Vị:</strong>
+                                <p class="mt-1 text-slate-300">Tổng công nợ VTA của VCC và ACT đạt <strong>403.39 Tỷ VNĐ</strong>. Xử lý dứt điểm cho 2 nhà thầu này sẽ giải quyết được 3/4 khối công nợ Toàn tập đoàn!</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                                <strong class="text-amber-400">TCT CP Công trình Viettel (VCC):</strong>
+                                <p class="mt-1">Dẫn đầu với 234 Tỷ VNĐ (43.0%). Cần đôn đốc hoàn ứng VTA hàng tháng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: TRỌNG TÂM 2 - CẢNH BÁO HĐ CHI PHÍ < 2025 -->
+        <div class="slide" id="slide4">
+            <div class="max-w-6xl mx-auto w-full space-y-5 my-auto">
+                <div class="border-l-4 border-amber-500 pl-4">
+                    <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">TRỌNG TÂM 2 (NGUỒN CHI PHÍ)</span>
+                    <h2 class="text-2xl font-black text-white">CẢNH BÁO HỢP ĐỒNG CHI PHÍ TỒN ĐỌNG KÝ TRƯỚC 2025 (< 2025)</h2>
+                </div>
+
+                <div class="grid grid-cols-12 gap-6 items-center">
+                    <!-- Table Expense pre-2025 -->
+                    <div class="col-span-7 card-box p-4">
+                        <table class="w-full text-xs text-left">
+                            <thead class="bg-slate-900 text-white font-bold">
+                                <tr>
+                                    <th class="p-2.5 rounded-l-lg">Nhà Thầu Đối Tác</th>
+                                    <th class="p-2.5 text-center">Số HĐ < 2025</th>
+                                    <th class="p-2.5 text-center">Tổng Số CT</th>
+                                    <th class="p-2.5 text-center rounded-r-lg">Cảnh Báo Rủi Ro</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 font-semibold text-slate-800">
+                                <tr class="bg-red-50 font-bold">
+                                    <td class="p-2.5 text-viettel-red">TCT CP Công trình Viettel (VCC)</td>
+                                    <td class="p-2.5 text-center text-viettel-red font-black">32 HĐ</td>
+                                    <td class="p-2.5 text-center">247 CT</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-viettel-red text-white text-[10px] font-black rounded">🔥 ĐỌNG NHIỀU NHẤT</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">Công ty TNHH MTV TM-DV Mai Tú Tài</td>
+                                    <td class="p-2.5 text-center font-bold text-amber-700">11 HĐ</td>
+                                    <td class="p-2.5 text-center">85 CT</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-900 text-[10px] font-bold rounded">⚠️ Cảnh báo cao</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">CTY TNHH TMDV KT Tiến Thịnh</td>
+                                    <td class="p-2.5 text-center font-bold text-amber-700">6 HĐ</td>
+                                    <td class="p-2.5 text-center">42 CT</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-900 text-[10px] font-bold rounded">⚠️ Cảnh báo</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">Công ty TNHH VT Tân Thanh</td>
+                                    <td class="p-2.5 text-center font-bold text-amber-700">6 HĐ</td>
+                                    <td class="p-2.5 text-center">38 CT</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-900 text-[10px] font-bold rounded">⚠️ Cảnh báo</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5">Công ty CP Viễn thông ACT</td>
+                                    <td class="p-2.5 text-center font-bold text-amber-700">5 HĐ</td>
+                                    <td class="p-2.5 text-center">31 CT</td>
+                                    <td class="p-2.5 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-900 text-[10px] font-bold rounded">⚠️ Cảnh báo</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Warning Highlight Card -->
+                    <div class="col-span-5 bg-slate-900 p-6 rounded-2xl border border-amber-500/40 space-y-4">
+                        <div class="text-lg font-black text-amber-400 flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i> RỦI RO HỢP ĐỒNG CHI PHÍ CŨ:
+                        </div>
+                        <div class="space-y-3 text-xs text-slate-300">
+                            <div class="p-3 bg-amber-950/40 rounded-xl border border-amber-500/30">
+                                <strong class="text-white text-sm">78 HĐ Chi Phí Ký Từ 2010 - 2024:</strong>
+                                <p class="mt-1 text-slate-300">Giá trị đọng 14.78 Tỷ VNĐ. HĐ kéo dài nhiều năm nguy cơ quá thời hạn pháp lý & khó khăn quyết toán tài chính.</p>
+                            </div>
+                            <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700">
+                                <strong class="text-viettel-red">VCC Chiếm 41.0% HĐ Chi Phí Cũ:</strong>
+                                <p class="mt-1">VCC tiếp tục ngâm 32 HĐ Chi phí cũ. Cần làm việc riêng để quyết toán dứt điểm trước 30/10/2026.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: ĐÁNH GIÁ KPI (AQ-AW & COL Q) -->
+        <div class="slide" id="slide5">
+            <div class="max-w-6xl mx-auto w-full space-y-5 my-auto">
+                <div class="border-l-4 border-emerald-500 pl-4">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">KIỂM SOÁT KPI THỜI GIAN THỰC</span>
+                    <h2 class="text-2xl font-black text-white">QUY TẮC ĐÁNH GIÁ ĐẠT / VƯỚNG KPI THEO CỘT Q = "KHÔNG"</h2>
+                </div>
+
+                <!-- Explanation Box -->
+                <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700 text-xs text-slate-300 space-y-2">
+                    <div class="text-sm font-black text-viettel-red flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i> QUY TẮC ĐÁNH GIÁ KPI CHUẨN XÁC:
+                    </div>
+                    <p>• <strong>Cột AQ - AW (Tích '1'):</strong> Thể hiện công trình NẰM TRONG DANH MỤC GIAO KPI (không phải là đã đạt).</p>
+                    <p>• <strong>Đánh giá ĐẠT KPI (✓):</strong> Bắt buộc Cột Q ("Tồn Vật tư A") phải hiện chữ <strong>"KHÔNG"</strong> (tức là đã dọn sạch tồn VTA).</p>
+                    <p>• <strong>Đánh giá VƯỚNG KPI (✗):</strong> Nếu Cột Q hiện chữ <strong>"CÓ"</strong> (hoặc phát sinh số tiền tồn VTA > 0).</p>
+                </div>
+
+                <!-- 6 KPI Grid -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="card-box p-4 border-t-4 border-viettel-red">
+                        <div class="text-xs font-black text-viettel-red">AQ: KH VTT</div>
+                        <div class="text-sm font-bold text-slate-900 mt-1">Chấm điểm GĐ</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Chỉ tiêu Kế hoạch Vật tư thiết bị</div>
+                    </div>
+                    <div class="card-box p-4 border-t-4 border-blue-600">
+                        <div class="text-xs font-black text-blue-600">AR: NT BQLDA</div>
+                        <div class="text-sm font-bold text-slate-900 mt-1">Nghiệm thu BQLDA</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Nghiệm thu khối lượng BQLDA</div>
+                    </div>
+                    <div class="card-box p-4 border-t-4 border-purple-600">
+                        <div class="text-xs font-black text-purple-600">AS: BGTS BQLDA</div>
+                        <div class="text-sm font-bold text-slate-900 mt-1">Bàn giao tài sản</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Bàn giao tài sản vào BQLDA</div>
+                    </div>
+                    <div class="card-box p-4 border-t-4 border-amber-500">
+                        <div class="text-xs font-black text-amber-700">AT: NT SAP</div>
+                        <div class="text-sm font-bold text-slate-900 mt-1">Nghiệm thu SAP</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Nghiệm thu hệ thống SAP</div>
+                    </div>
+                    <div class="card-box p-4 border-t-4 border-emerald-500">
+                        <div class="text-xs font-black text-emerald-700">AU: BGTS SAP</div>
+                        <div class="text-sm font-bold text-slate-900 mt-1">BGTS trên SAP</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Bàn giao tài sản trên hệ thống SAP</div>
+                    </div>
+                    <div class="card-box p-4 border-t-4 border-rose-500">
+                        <div class="text-xs font-black text-rose-700">AW: VHKT</div>
+                        <div class="text-sm font-bold text-slate-900 mt-1">Vận hành kỹ thuật</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Bàn giao đưa vào Vận hành KT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: KẾ HOẠCH HÀNH ĐỘNG -->
+        <div class="slide" id="slide6">
+            <div class="max-w-6xl mx-auto w-full space-y-5 my-auto">
+                <div class="border-l-4 border-viettel-red pl-4">
+                    <span class="text-xs font-bold text-viettel-red uppercase tracking-wider">ĐỀ XUẤT ĐÁNH TRỌNG TÂM</span>
+                    <h2 class="text-2xl font-black text-white">KẾ HOẠCH HÀNH ĐỘNG THU HỒI CÔNG NỢ VTA & HỢP ĐỒNG CHI PHÍ</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="card-box p-5 border-l-4 border-viettel-red">
+                        <h3 class="text-base font-black text-viettel-red flex items-center gap-2">
+                            <span class="w-6 h-6 bg-viettel-red text-white text-xs rounded-full flex items-center justify-center">1</span>
+                            ĐÔN ĐỐC LÀM VIỆC RIÊNG VỚI TOP 2 NHÀ THẦU (VCC & ACT - CHIẾM 74.1% VTA)
+                        </h3>
+                        <p class="text-xs text-slate-700 mt-2 pl-8">
+                            • Thành lập Tổ công tác chuyên trách làm việc với Ban Lãnh đạo TCT CP Công trình Viettel (234 Tỷ) và Viễn thông ACT (169.4 Tỷ).<br>
+                            • Giao chỉ tiêu cứng: Giảm tối thiểu <strong>40 - 50% tồn công nợ VTA</strong> (tương đương 200 Tỷ VNĐ) trong Quý 4/2026.
+                        </p>
+                    </div>
+
+                    <div class="card-box p-5 border-l-4 border-amber-500">
+                        <h3 class="text-base font-black text-amber-700 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-amber-500 text-white text-xs rounded-full flex items-center justify-center">2</span>
+                            TỔ CÔNG TÁC XỬ LÝ DỨT ĐIỂM 78 HỢP ĐỒNG CHI PHÍ KÝ TRƯỚC 2025
+                        </h3>
+                        <p class="text-xs text-slate-700 mt-2 pl-8">
+                            • Rà soát từng HĐ chi phí đọng lâu năm (đặc biệt 32 HĐ của VCC và 11 HĐ của Mai Tú Tài).<br>
+                            • Đặt hạn chót <strong>30/10/2026</strong>: Hoàn thành 100% hồ sơ nghiệm thu thu hồi hoặc xử lý dứt điểm hiệu lực hợp đồng.
+                        </p>
+                    </div>
+
+                    <div class="card-box p-5 border-l-4 border-emerald-500">
+                        <h3 class="text-base font-black text-emerald-700 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-emerald-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                            KIỂM SOÁT KPI THỜI GIAN THỰC QUA DASHBOARD GOOGLE SHEET LIVE
+                        </h3>
+                        <p class="text-xs text-slate-700 mt-2 pl-8">
+                            • Sử dụng trực tiếp Dashboard Online 24/7 (<strong>https://cuongph2.github.io/viettel-dashboard/</strong>) để giao ban hàng tuần.<br>
+                            • Bấm nút <strong>"Cập Nhật Từ Google Sheet"</strong> để lấy số liệu công nợ mới nhất theo thời gian thực.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT FOR SLIDE NAVIGATION -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 6;
+
+        function showSlide(index) {
+            if (index < 1) index = 1;
+            if (index > totalSlides) index = totalSlides;
+            currentSlide = index;
+
+            document.querySelectorAll('.slide').forEach((s, idx) => {
+                s.classList.toggle('active', idx + 1 === currentSlide);
+            });
+
+            document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+        });
+    </script>
+</body>
+</html>
