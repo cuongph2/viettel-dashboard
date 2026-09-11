@@ -299,17 +299,25 @@
             <div class="overflow-x-auto max-h-96 custom-scrollbar">
                 <table class="w-full text-xs text-left text-slate-700">
                     <thead class="text-xs uppercase bg-slate-100 text-slate-700 sticky top-0 font-bold z-10">
-                        <tr>
-                            <th class="px-3 py-3 text-center">STT</th>
-                            <th class="px-4 py-3">Nhà Thầu / Đối Tác</th>
-                            <th class="px-3 py-3 text-center">Số HĐ</th>
-                            <th class="px-3 py-3 text-center">Tổng CT</th>
-                            <th class="px-3 py-3 text-center text-red-600">CT Tồn VTA</th>
-                            <th class="px-4 py-3 text-right text-red-600">Tiền VTA (Tỷ VNĐ)</th>
-                            <th class="px-3 py-3 text-center">Số Giao KPI</th>
-                            <th class="px-3 py-3 text-center text-emerald-600">CT Đạt KPI</th>
-                            <th class="px-3 py-3 text-center text-rose-600">CT Chưa Đạt</th>
-                            <th class="px-3 py-3 text-center">% Đạt KPI</th>
+                        <tr class="bg-slate-200 text-slate-800 font-extrabold border-b border-slate-300">
+                            <th class="px-2 py-2.5 text-center border-r border-slate-300" rowspan="2">STT</th>
+                            <th class="px-3 py-2.5 text-left border-r border-slate-300" rowspan="2">Nhà Thầu / Đối Tác</th>
+                            <th class="px-2 py-2.5 text-center border-r border-slate-300" rowspan="2">Số HĐ</th>
+                            <th class="px-2 py-2.5 text-center border-r border-slate-300" rowspan="2">Tổng CT</th>
+                            <th class="px-2 py-2.5 text-center text-red-600 border-r border-slate-300" rowspan="2">CT Tồn VTA</th>
+                            <th class="px-3 py-2.5 text-right text-red-600 border-r border-slate-300" rowspan="2">Tiền VTA (Tỷ)</th>
+                            <th class="px-2 py-1.5 text-center bg-red-100 text-viettel-red border-r border-slate-300" colspan="6">
+                                CHI TIẾT TỪNG KPI (ĐẠT / GIAO CT)
+                            </th>
+                            <th class="px-3 py-2.5 text-center" rowspan="2">TỔNG % ĐẠT KPI</th>
+                        </tr>
+                        <tr class="bg-slate-100 text-slate-700 text-[10px] font-bold">
+                            <th class="px-2 py-1 text-center border-r border-slate-200">1. KHVTT</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">2. NT BQLDA</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">3. BGTS BQLDA</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">4. NT SAP</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">5. BGTS SAP</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">6. VHKT</th>
                         </tr>
                     </thead>
                     <tbody id="contractorKpiTbody" class="divide-y divide-gray-100">
@@ -378051,7 +378059,15 @@ function renderContractorKPITable(filteredHDs) {
                 soCT_VTA: 0,
                 tongTienVTA: 0,
                 kpi_assigned: 0,
-                kpi_pass: 0
+                kpi_pass: 0,
+                kpi_details: {
+                    KHVTT: {a: 0, p: 0},
+                    NTBQLDA: {a: 0, p: 0},
+                    BGTSBQLDA: {a: 0, p: 0},
+                    NTSAP: {a: 0, p: 0},
+                    BGTS_SAP: {a: 0, p: 0},
+                    VHKT: {a: 0, p: 0}
+                }
             };
         }
         const s = stats[nt];
@@ -378061,8 +378077,12 @@ function renderContractorKPITable(filteredHDs) {
         s.tongTienVTA += (hd.tongCongNoVTA || 0);
         
         ['KHVTT', 'NTBQLDA', 'BGTSBQLDA', 'NTSAP', 'BGTS_SAP', 'VHKT'].forEach(k => {
-            s.kpi_assigned += (hd['kpi' + k + '_Assigned'] || 0);
-            s.kpi_pass += (hd['kpi' + k + '_Pass'] || 0);
+            const a = (hd['kpi' + k + '_Assigned'] || 0);
+            const p = (hd['kpi' + k + '_Pass'] || 0);
+            s.kpi_details[k].a += a;
+            s.kpi_details[k].p += p;
+            s.kpi_assigned += a;
+            s.kpi_pass += p;
         });
     });
 
@@ -378083,7 +378103,6 @@ function filterKpiPartnerTable() {
 
     let html = '';
     filtered.forEach((item, index) => {
-        const chuaDat = item.kpi_assigned - item.kpi_pass;
         const pct = item.kpi_assigned > 0 ? ((item.kpi_pass / item.kpi_assigned) * 100).toFixed(1) : '0.0';
         const vtaTy = (item.tongTienVTA / 1e9).toFixed(2);
         
@@ -378091,18 +378110,27 @@ function filterKpiPartnerTable() {
         if (parseFloat(pct) >= 50) badgeClass = 'bg-green-100 text-green-700 font-bold';
         else if (parseFloat(pct) >= 10) badgeClass = 'bg-amber-100 text-amber-800 font-bold';
 
+        const fmtK = (kObj) => {
+            if (kObj.a === 0) return `<span class="text-slate-300 font-normal">-</span>`;
+            const passColor = kObj.p > 0 ? 'text-emerald-600 font-bold' : 'text-slate-400 font-medium';
+            return `<span class="${passColor}">${kObj.p.toLocaleString('vi-VN')}</span><span class="text-slate-400">/</span><span class="text-slate-600 font-medium">${kObj.a.toLocaleString('vi-VN')}</span>`;
+        };
+
         html += `
         <tr class="hover:bg-red-50/60 transition text-xs border-b border-gray-100">
-            <td class="px-3 py-2.5 text-center font-semibold text-gray-500">${index + 1}</td>
-            <td class="px-4 py-2.5 font-bold text-gray-800 text-xs">${item.nhaThau}</td>
-            <td class="px-3 py-2.5 text-center font-medium text-gray-700">${item.soHD}</td>
-            <td class="px-3 py-2.5 text-center font-semibold text-gray-800">${item.soCT.toLocaleString('vi-VN')}</td>
-            <td class="px-3 py-2.5 text-center font-extrabold text-red-600 bg-red-50/40">${item.soCT_VTA.toLocaleString('vi-VN')}</td>
-            <td class="px-4 py-2.5 text-right font-extrabold text-red-600 bg-red-50/40">${vtaTy} Tỷ</td>
-            <td class="px-3 py-2.5 text-center font-medium text-gray-700">${item.kpi_assigned.toLocaleString('vi-VN')}</td>
-            <td class="px-3 py-2.5 text-center font-bold text-emerald-600 bg-emerald-50/40">${item.kpi_pass.toLocaleString('vi-VN')}</td>
-            <td class="px-3 py-2.5 text-center font-bold text-rose-600 bg-rose-50/40">${chuaDat.toLocaleString('vi-VN')}</td>
-            <td class="px-3 py-2.5 text-center">
+            <td class="px-2 py-2 text-center font-semibold text-gray-500">${index + 1}</td>
+            <td class="px-3 py-2 font-bold text-gray-800 text-xs">${item.nhaThau}</td>
+            <td class="px-2 py-2 text-center font-medium text-gray-700">${item.soHD}</td>
+            <td class="px-2 py-2 text-center font-semibold text-gray-800">${item.soCT.toLocaleString('vi-VN')}</td>
+            <td class="px-2 py-2 text-center font-extrabold text-red-600 bg-red-50/40">${item.soCT_VTA.toLocaleString('vi-VN')}</td>
+            <td class="px-3 py-2 text-right font-extrabold text-red-600 bg-red-50/40">${vtaTy} Tỷ</td>
+            <td class="px-2 py-2 text-center border-l border-slate-100">${fmtK(item.kpi_details.KHVTT)}</td>
+            <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.NTBQLDA)}</td>
+            <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.BGTSBQLDA)}</td>
+            <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.NTSAP)}</td>
+            <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.BGTS_SAP)}</td>
+            <td class="px-2 py-2 text-center border-r border-slate-100">${fmtK(item.kpi_details.VHKT)}</td>
+            <td class="px-3 py-2 text-center">
                 <span class="px-2 py-0.5 rounded-full text-[11px] ${badgeClass}">${pct}%</span>
             </td>
         </tr>
@@ -378110,11 +378138,12 @@ function filterKpiPartnerTable() {
     });
 
     if (filtered.length === 0) {
-        html = `<tr><td colspan="10" class="text-center py-6 text-gray-400 italic">Không tìm thấy nhà thầu phù hợp</td></tr>`;
+        html = `<tr><td colspan="13" class="text-center py-6 text-gray-400 italic">Không tìm thấy nhà thầu phù hợp</td></tr>`;
     }
 
     tbody.innerHTML = html;
 }
+
 
 </script>
 </body>
