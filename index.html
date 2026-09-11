@@ -870,6 +870,207 @@
             document.getElementById('ctModal').classList.remove('hidden');
         }
 
+
+        async function syncFromGoogleSheet() {
+            const btn = document.getElementById('syncBtn');
+            const loading = document.getElementById('loadingOverlay');
+            try {
+                if (loading) loading.classList.remove('hidden');
+                if (btn) btn.disabled = true;
+                
+                const sheetUrl = "https://docs.google.com/spreadsheets/d/1MYESQU2vp2rOjquS8vaDnTcG50difXgIxhHzDp-oX5w/export?format=csv&gid=1088439164";
+                const response = await fetch(sheetUrl);
+                if (!response.ok) throw new Error("Không thể kết nối Google Sheet. Mã HTTP: " + response.status);
+                
+                const csvText = await response.text();
+                
+                Papa.parse(csvText, {
+                    header: false,
+                    skipEmptyLines: true,
+                    complete: function(results) {
+                        if (!results.data || results.data.length < 3) {
+                            throw new Error("Dữ liệu Google Sheet không đúng định dạng!");
+                        }
+                        processRawArrayRows(results.data);
+                        if (loading) loading.classList.add('hidden');
+                        if (btn) btn.disabled = false;
+                        alert("✅ ĐÃ CẬP NHẬT THÀNH CÔNG!
+
+Đã tải và tính toán lại " + (results.data.length - 2).toLocaleString() + " công trình mới nhất từ Google Sheet.");
+                    },
+                    error: function(err) {
+                        throw err;
+                    }
+                });
+            } catch(err) {
+                if (loading) loading.classList.add('hidden');
+                if (btn) btn.disabled = false;
+                alert("⚠️ Lỗi khi cập nhật từ Google Sheet:
+" + err.message + "
+
+Mẹo: Anh cũng có thể dùng nút 'Nạp File Excel' để chọn file trực tiếp từ máy tính.");
+            }
+        }
+
+        function handleExcelUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const loading = document.getElementById('loadingOverlay');
+            if (loading) loading.classList.remove('hidden');
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, {type: 'array'});
+                    let sheetName = workbook.SheetNames.find(s => s.includes("Chi tiết CT")) || workbook.SheetNames[0];
+                    const sheet = workbook.Sheets[sheetName];
+                    const jsonArray = XLSX.utils.sheet_to_json(sheet, {header: 1, defval: ""});
+                    
+                    if (!jsonArray || jsonArray.length < 3) {
+                        throw new Error("File Excel không đúng định dạng!");
+                    }
+                    
+                    processRawArrayRows(jsonArray);
+                    if (loading) loading.classList.add('hidden');
+                    alert("✅ ĐÃ NẠP THÀNH CÔNG!
+
+Đã tải " + (jsonArray.length - 2).toLocaleString() + " dòng công trình từ file Excel.");
+                } catch(err) {
+                    if (loading) loading.classList.add('hidden');
+                    alert("❌ Lỗi nạp file Excel: " + err.message);
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function processRawArrayRows(rows) {
+            let startIdx = 0;
+            for (let i = 0; i < Math.min(10, rows.length); i++) {
+                const rowStr = JSON.stringify(rows[i]).toLowerCase();
+                if (rowStr.includes('mã công trình') || rowStr.includes('số công trình') || rowStr.includes('mã ct')) {
+                    startIdx = i + 1;
+                    break;
+                }
+            }
+            if (startIdx === 0 && rows.length > 2) startIdx = 2;
+            
+            const dataRows = rows.slice(startIdx);
+            const ctList = [];
+            
+            const parseNum = (v) => {
+                if (!v || v === 'nan' || v === '-' || v === '') return 0;
+                let s = String(v).replace(/\./g, '').replace(/,/g, '').replace(/\s/g, '');
+                let n = parseFloat(s);
+                return isNaN(n) ? 0 : n;
+            };
+            
+            const extractYear = (val) => {
+                let s = String(val);
+                let m = s.match(/20[0-2][0-9]/g);
+                if (m) {
+                    let years = m.map(y => parseInt(y)).filter(y => y >= 2010 && y <= 2026);
+                    if (years.length > 0) return Math.min(...years);
+                }
+                return 2025;
+            };
+            
+            dataRows.forEach(row => {
+                if (!row || row.length < 5) return;
+                
+                let maCT = String(row[1] || '').trim();
+                if (!maCT || maCT.toLowerCase() === 'nan' || maCT.toLowerCase().includes('mã công trình')) return;
+                
+                let soHD = String(row[6] || 'HĐ Chưa Xác Định').trim();
+                if (!soHD || soHD.toLowerCase() === 'nan') soHD = 'HĐ Chưa Xác Định';
+                
+                let nguonRaw = String(row[4] || 'ĐẦU TƯ').trim();
+                let isChiPhi = nguonRaw.toLowerCase().includes('chi phí') || soHD.toLowerCase().includes('cp') || soHD.toLowerCase().includes('chi phí');
+                let nguonVon = isChiPhi ? 'Nguồn Chi Phí' : 'Nguồn Đầu Tư';
+                
+                let nhaThau = String(row[7] || 'Khác').trim();
+                if (nhaThau === 'nan' || !nhaThau) nhaThau = 'Khác';
+                
+                let loaiCT = String(row[3] || 'Chưa phân loại').trim();
+                let ban = String(row[19] || 'Ban Ngoại vi').trim();
+                
+                let namKy = extractYear(soHD);
+                let giaTri = parseNum(row[11]);
+                
+                let vtaVal = parseNum(row[17]);
+                let vtaExistStr = String(row[16] || '').trim().toUpperCase();
+                let isVtaClean = (vtaExistStr === 'KHÔNG');
+                let hasVtaCongno = (vtaExistStr === 'CÓ') || (vtaVal > 0);
+                
+                let assigned_khvtt = String(row[42] || '').trim() === '1';
+                let assigned_ntbqlda = String(row[43] || '').trim() === '1';
+                let assigned_bgtsbqlda = String(row[44] || '').trim() === '1';
+                let assigned_ntsap = String(row[45] || '').trim() === '1';
+                let assigned_bgtssap = String(row[46] || '').trim() === '1';
+                let assigned_vhkt = String(row[48] || '').trim() === '1';
+                
+                ctList.push({
+                    maCT: maCT,
+                    soHD: soHD,
+                    nguonVon: nguonVon,
+                    isChiPhi: isChiPhi,
+                    nhaThau: nhaThau,
+                    ban: ban,
+                    loaiCT: loaiCT,
+                    namKy: namKy,
+                    giaTri: giaTri,
+                    vtaVal: vtaVal,
+                    hasVtaCongno: hasVtaCongno,
+                    isVtaClean: isVtaClean,
+                    assigned_khvtt: assigned_khvtt,
+                    pass_khvtt: assigned_khvtt && isVtaClean,
+                    assigned_ntbqlda: assigned_ntbqlda,
+                    pass_ntbqlda: assigned_ntbqlda && isVtaClean,
+                    assigned_bgtsbqlda: assigned_bgtsbqlda,
+                    pass_bgtsbqlda: assigned_bgtsbqlda && isVtaClean,
+                    assigned_ntsap: assigned_ntsap,
+                    pass_ntsap: assigned_ntsap && isVtaClean,
+                    assigned_bgtssap: assigned_bgtssap,
+                    pass_bgtssap: assigned_bgtssap && isVtaClean,
+                    assigned_vhkt: assigned_vhkt,
+                    pass_vhkt: assigned_vhkt && isVtaClean
+                });
+            });
+            
+            const hdDict = {};
+            ctList.forEach(ct => {
+                let key = ct.soHD;
+                if (!hdDict[key]) {
+                    hdDict[key] = {
+                        soHD: ct.soHD,
+                        nguonVon: ct.nguonVon,
+                        isChiPhi: ct.isChiPhi,
+                        namKy: ct.namKy,
+                        nhaThau: ct.nhaThau,
+                        ban: ct.ban,
+                        soLuongCT: 0,
+                        tongCongNoVTA: 0,
+                        tongGiaTriTon: 0,
+                        danhSachCT: []
+                    };
+                }
+                hdDict[key].soLuongCT++;
+                hdDict[key].tongCongNoVTA += ct.vtaVal;
+                hdDict[key].tongGiaTriTon += ct.giaTri;
+                hdDict[key].danhSachCT.push(ct);
+            });
+            
+            const newHDList = Object.values(hdDict);
+            newHDList.forEach(hd => {
+                hd.isWarningPre2025 = hd.isChiPhi && (hd.namKy < 2025);
+            });
+            
+            fullHDList = newHDList;
+            filteredHDList = [...fullHDList];
+            
+            initDashboard();
+        }
+
         function closeModal() {
             document.getElementById('ctModal').classList.add('hidden');
         }
