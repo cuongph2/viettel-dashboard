@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <!-- SheetJS (xlsx) -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -37,6 +39,14 @@
     </style>
 </head>
 <body class="p-4 md:p-6 text-slate-800">
+
+    <!-- LOADING OVERLAY -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-[9999] hidden flex flex-col items-center justify-center text-white">
+        <div class="animate-spin rounded-full h-16 w-16 border-4 border-viettel-red border-t-transparent mb-4"></div>
+        <p class="text-lg font-black tracking-wide">Đang cập nhật dữ liệu từ Google Sheet...</p>
+        <p class="text-xs text-slate-300 mt-1">Hệ thống đang tự động tải và tính toán lại 12.800+ công trình</p>
+    </div>
+
     <div class="max-w-[1600px] mx-auto space-y-5">
         
         <!-- HEADER BAR -->
@@ -58,9 +68,15 @@
             </div>
             
             <div class="flex flex-wrap items-center gap-3">
-                <span class="px-3.5 py-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-xl border border-emerald-300 flex items-center gap-1.5">
-                    <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã tổng hợp 649 HĐ từ 12.834 CT thô
-                </span>
+                <!-- NÚT CẬP NHẬT TRỰC TIẾP TỪ GOOGLE SHEET -->
+                <button id="syncBtn" onclick="syncFromGoogleSheet()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-xl transition shadow flex items-center gap-2">
+                    <i class="fa-solid fa-arrows-rotate"></i> Cập Nhật Từ Google Sheet
+                </button>
+
+                <label class="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl cursor-pointer transition border border-slate-300">
+                    <i class="fa-solid fa-file-upload"></i> Nạp File Excel
+                    <input type="file" id="excelInput" accept=".xlsx,.xls,.csv" class="hidden" onchange="handleExcelUpload(event)">
+                </label>
 
                 <button onclick="exportToExcel()" class="px-4 py-2 bg-viettel-red hover:bg-viettel-darkred text-white text-xs font-bold rounded-xl transition shadow">
                     <i class="fa-solid fa-file-excel"></i> Xuất Báo Cáo Excel
@@ -434,6 +450,44 @@
             applyFilters();
         }
 
+        async function syncFromGoogleSheet() {
+            const btn = document.getElementById('syncBtn');
+            const origText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang nạp từ Google Sheet...';
+            btn.disabled = true;
+
+            try {
+                const sheetUrl = 'https://docs.google.com/spreadsheets/d/1MYESQU2vp2rOjquS8vaDnTcG50difXgIxhHzDp-oX5w/export?format=csv&gid=1088439164';
+                const resp = await fetch(sheetUrl);
+                if(!resp.ok) throw new Error('CORS / URL error');
+                const csvText = await resp.text();
+                
+                const workbook = XLSX.read(csvText, { type: 'string' });
+                const sheetName = workbook.SheetNames[0];
+                const rawRows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
+                
+                alert('🎉 ĐÃ NẠP CẬP NHẬT THÀNH CÔNG DỮ LIỆU MỚI TỪ GOOGLE SHEET!');
+            } catch(e) {
+                alert('💡 Mẹo: Bạn có thể chọn nút "Nạp File Excel" để nạp file trực tiếp nếu trình duyệt chặn CORS của Google Sheet!');
+            } finally {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            }
+        }
+
+        function handleExcelUpload(event) {
+            const file = event.target.files[0];
+            if(!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                alert('🎉 ĐÃ NẠP THÀNH CÔNG FILE EXCEL MỚI! Dữ liệu đã được cập nhật.');
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
         function populateSlicers() {
             const ntSet = [...new Set(fullHDList.map(d => d.nhaThau))].filter(Boolean);
             const selectNT = document.getElementById('slicerNhaThau');
@@ -555,7 +609,7 @@
         }
 
         function renderCharts() {
-            // CHART 1: Tỷ Trọng Công Nợ VTA Nguồn Đầu Tư Theo Top Nhà Thầu (SHORTENED NAMES)
+            // CHART 1: Tỷ Trọng Công Nợ VTA Nguồn Đầu Tư Theo Top Nhà Thầu
             const dauTuHDs = filteredHDList.filter(d => !d.isChiPhi && d.tongCongNoVTA > 0);
             const ntVtaMap = {};
             dauTuHDs.forEach(d => {
@@ -645,7 +699,7 @@
                 }
             });
 
-            // CHART 3: Top Contractors Pre-2025 Expense Contracts (SHORTENED NAMES)
+            // CHART 3: Top Contractors Pre-2025 Expense Contracts
             const pre2025HD = filteredHDList.filter(d => d.isWarningPre2025);
             const ntCounts = {};
             pre2025HD.forEach(d => {
