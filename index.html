@@ -451,10 +451,10 @@
                 <div>
                     <h3 class="text-base font-extrabold text-slate-800 uppercase tracking-wide flex items-center gap-2">
                         <i class="fas fa-calendar-check text-viettel-red"></i>
-                        Bảng Phân Tích Chuyên Sâu Kế Hoạch Tháng 9 (Cột J) Theo Nhà Thầu
+                        Bảng Phân Tích Chuyên Sâu Kế Hoạch Tháng 9 Theo Nhà Thầu
                     </h3>
                     <p class="text-xs text-slate-500 mt-1">
-                        Chi tiết số HĐ, Số Công trình (Col J = 'T9'), Công nợ VTA (Col R), Tồn VTTB (Col L), Thu hồi (Col O) và Vật tư cần nhập kho (Col P).
+                        Phân tích chi tiết Số HĐ, Số Công trình, Công nợ VTA, Tồn VTTB, Đã Thu Hồi và Vật Tư Cần Nhập Kho (VTA Nghiệm Thu > 0 & Tồn VTA = "Có").
                     </p>
                 </div>
                 <div class="flex items-center gap-2">
@@ -470,11 +470,11 @@
                             <th class="px-2 py-3 text-center">STT</th>
                             <th class="px-4 py-3">Nhà Thầu / Đơn Vị Thi Công</th>
                             <th class="px-2 py-3 text-center">Số HĐ KH T9</th>
-                            <th class="px-3 py-3 text-center text-red-300">Số CT KH T9 (Col J)</th>
-                            <th class="px-3 py-3 text-right text-red-300">Công Nợ VTA (Col R)</th>
-                            <th class="px-3 py-3 text-right">Tồn VTTB (Col L)</th>
-                            <th class="px-3 py-3 text-right text-emerald-300">Đã Thu Hồi (Col O)</th>
-                            <th class="px-3 py-3 text-right text-amber-300">Cần Nhập Kho (Col P)</th>
+                            <th class="px-3 py-3 text-center text-red-300">Số CT KH T9</th>
+                            <th class="px-3 py-3 text-right text-red-300">Công Nợ VTA (Tỷ)</th>
+                            <th class="px-3 py-3 text-right">Tồn VTTB (Tỷ)</th>
+                            <th class="px-3 py-3 text-right text-emerald-300">Đã Thu Hồi (Tỷ)</th>
+                            <th class="px-3 py-3 text-right text-amber-300">Cần Nhập Kho (Tỷ)</th>
                             <th class="px-3 py-3 text-center">% Giải Tỏa VTA</th>
                         </tr>
                     </thead>
@@ -717,7 +717,8 @@
     "total_VTA_KHT9": 135317450494.0,
     "total_VTTB_KHT9": 143579389820.0,
     "total_ThuHoi_KHT9": 32761245823.0,
-    "total_NhapKho_KHT9": 4205400.0
+    "total_CT_CanNhapKho_KHT9": 403,
+    "total_CanNhapKho_KHT9": 36982478338.0
   },
   "hdList": [
     {
@@ -779,6 +780,7 @@
       "congNoVTA_KHT9": 18392720.0,
       "tonVTTB_KHT9": 18392720.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -1204,6 +1206,7 @@
       "congNoVTA_KHT9": 664748260.0,
       "tonVTTB_KHT9": 911789880.0,
       "thuHoiVTA_KHT9": 247431620.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -1265,6 +1268,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -1354,6 +1358,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -1415,6 +1420,7 @@
       "congNoVTA_KHT9": 29788885.0,
       "tonVTTB_KHT9": 29788885.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -2932,7 +2938,8 @@
       "congNoVTA_KHT9": 7955123969.0,
       "tonVTTB_KHT9": 7955123969.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 2494800.0
     },
     {
       "soHD": "191201-HT/BDG-CTCT/BDT/2023",
@@ -3245,6 +3252,7 @@
       "congNoVTA_KHT9": 2409360.0,
       "tonVTTB_KHT9": 2409360.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -3306,6 +3314,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -3395,6 +3404,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -3456,6 +3466,7 @@
       "congNoVTA_KHT9": 10791066.0,
       "tonVTTB_KHT9": 10791066.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -3517,6 +3528,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -3634,6 +3646,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 22073607.0,
       "thuHoiVTA_KHT9": 22073607.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -3695,6 +3708,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -27808,7 +27822,8 @@
       "congNoVTA_KHT9": 2263070116.0,
       "tonVTTB_KHT9": 2356768945.0,
       "thuHoiVTA_KHT9": 359909587.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 7427400.0
     },
     {
       "soHD": "230801-HT/BDG-VCC/XL2024",
@@ -27869,6 +27884,7 @@
       "congNoVTA_KHT9": 687836.0,
       "tonVTTB_KHT9": 687836.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -27930,6 +27946,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -28047,6 +28064,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -28108,6 +28126,7 @@
       "congNoVTA_KHT9": 1067428.0,
       "tonVTTB_KHT9": 1067428.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -28701,6 +28720,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -29014,6 +29034,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -29075,6 +29096,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -29136,6 +29158,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -30065,6 +30088,7 @@
       "congNoVTA_KHT9": 592600.0,
       "tonVTTB_KHT9": 592600.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -30182,6 +30206,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -30579,7 +30604,8 @@
       "congNoVTA_KHT9": 17164986.0,
       "tonVTTB_KHT9": 17164986.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 13021835.0
     },
     {
       "soHD": "181103-HT/HCM-HOANGNAMPHAT/XL-2025",
@@ -30724,6 +30750,7 @@
       "congNoVTA_KHT9": 21543190.0,
       "tonVTTB_KHT9": 21543190.0,
       "thuHoiVTA_KHT9": 1960000.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -31401,6 +31428,7 @@
       "congNoVTA_KHT9": 191336897.0,
       "tonVTTB_KHT9": 191336897.0,
       "thuHoiVTA_KHT9": 188800.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -31798,6 +31826,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -32447,6 +32476,7 @@
       "congNoVTA_KHT9": 21709600.0,
       "tonVTTB_KHT9": 21709600.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -33516,6 +33546,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -33577,6 +33608,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -36130,7 +36162,8 @@
       "congNoVTA_KHT9": 2392635969.0,
       "tonVTTB_KHT9": 2392635969.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 26,
+      "canNhapKho_KHT9": 1498762507.0
     },
     {
       "soHD": "120601-HT/HCM-HOANGNHATVIET/XL-2026",
@@ -36191,6 +36224,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -36280,6 +36314,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -36733,6 +36768,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -37046,6 +37082,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -38059,6 +38096,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -38400,6 +38438,7 @@
       "congNoVTA_KHT9": 355104738.0,
       "tonVTTB_KHT9": 355104738.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -38881,6 +38920,7 @@
       "congNoVTA_KHT9": 1796920.0,
       "tonVTTB_KHT9": 1796920.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -38970,6 +39010,7 @@
       "congNoVTA_KHT9": 22180000.0,
       "tonVTTB_KHT9": 22180000.0,
       "thuHoiVTA_KHT9": 3375080.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -39059,6 +39100,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -39652,6 +39694,7 @@
       "congNoVTA_KHT9": 63182820.0,
       "tonVTTB_KHT9": 63182820.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -39741,6 +39784,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -39802,6 +39846,7 @@
       "congNoVTA_KHT9": 81868278.0,
       "tonVTTB_KHT9": 81868278.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -39891,6 +39936,7 @@
       "congNoVTA_KHT9": 125234616.0,
       "tonVTTB_KHT9": 125234616.0,
       "thuHoiVTA_KHT9": 13925268.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -39952,6 +39998,7 @@
       "congNoVTA_KHT9": 79159972.0,
       "tonVTTB_KHT9": 79159972.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -40013,6 +40060,7 @@
       "congNoVTA_KHT9": 8594503.0,
       "tonVTTB_KHT9": 8594503.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -41110,6 +41158,7 @@
       "congNoVTA_KHT9": 114675542.0,
       "tonVTTB_KHT9": 114675542.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -41619,6 +41668,7 @@
       "congNoVTA_KHT9": 96873477.0,
       "tonVTTB_KHT9": 74799870.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -41680,6 +41730,7 @@
       "congNoVTA_KHT9": 908288.0,
       "tonVTTB_KHT9": 908288.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -41741,6 +41792,7 @@
       "congNoVTA_KHT9": 20622232.0,
       "tonVTTB_KHT9": 20622232.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -41914,6 +41966,7 @@
       "congNoVTA_KHT9": 599309920.0,
       "tonVTTB_KHT9": 599309920.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -41975,6 +42028,7 @@
       "congNoVTA_KHT9": 43365273.0,
       "tonVTTB_KHT9": 43365273.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -42148,6 +42202,7 @@
       "congNoVTA_KHT9": 619309456.0,
       "tonVTTB_KHT9": 619309456.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -42209,6 +42264,7 @@
       "congNoVTA_KHT9": 62835244.0,
       "tonVTTB_KHT9": 62835244.0,
       "thuHoiVTA_KHT9": 3290637.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -42270,6 +42326,7 @@
       "congNoVTA_KHT9": 24545981.0,
       "tonVTTB_KHT9": 24545981.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -42359,6 +42416,7 @@
       "congNoVTA_KHT9": 63001843.0,
       "tonVTTB_KHT9": 63001843.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -42448,6 +42506,7 @@
       "congNoVTA_KHT9": 85689109.0,
       "tonVTTB_KHT9": 85689109.0,
       "thuHoiVTA_KHT9": 12843451.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -43069,6 +43128,7 @@
       "congNoVTA_KHT9": 143273316.0,
       "tonVTTB_KHT9": 143273316.0,
       "thuHoiVTA_KHT9": 107986476.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -44110,6 +44170,7 @@
       "congNoVTA_KHT9": 258298000.0,
       "tonVTTB_KHT9": 258298000.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45375,6 +45436,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 68502200.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45436,6 +45498,7 @@
       "congNoVTA_KHT9": 38630895.0,
       "tonVTTB_KHT9": 38630895.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45497,6 +45560,7 @@
       "congNoVTA_KHT9": 53946910.0,
       "tonVTTB_KHT9": 53946910.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45558,6 +45622,7 @@
       "congNoVTA_KHT9": 89316022.0,
       "tonVTTB_KHT9": 89316022.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45647,6 +45712,7 @@
       "congNoVTA_KHT9": 143381169.0,
       "tonVTTB_KHT9": 143381169.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45736,6 +45802,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45797,6 +45864,7 @@
       "congNoVTA_KHT9": 18811692.0,
       "tonVTTB_KHT9": 18811692.0,
       "thuHoiVTA_KHT9": 331260.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45858,6 +45926,7 @@
       "congNoVTA_KHT9": 71011742.0,
       "tonVTTB_KHT9": 71011742.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45919,6 +45988,7 @@
       "congNoVTA_KHT9": 23512303.0,
       "tonVTTB_KHT9": 23512303.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -45980,6 +46050,7 @@
       "congNoVTA_KHT9": 25650320.0,
       "tonVTTB_KHT9": 25650320.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -46041,6 +46112,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -46158,6 +46230,7 @@
       "congNoVTA_KHT9": 15174956.0,
       "tonVTTB_KHT9": 15174956.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -46415,6 +46488,7 @@
       "congNoVTA_KHT9": 297077131.0,
       "tonVTTB_KHT9": 297077131.0,
       "thuHoiVTA_KHT9": 17792780.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -47820,6 +47894,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -48889,6 +48964,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -49006,6 +49082,7 @@
       "congNoVTA_KHT9": 3604208.0,
       "tonVTTB_KHT9": 3604208.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -49067,6 +49144,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -49296,6 +49374,7 @@
       "congNoVTA_KHT9": 12167800.0,
       "tonVTTB_KHT9": 12167800.0,
       "thuHoiVTA_KHT9": 1871969.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -49749,6 +49828,7 @@
       "congNoVTA_KHT9": 55999423.0,
       "tonVTTB_KHT9": 55999423.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -50622,6 +50702,7 @@
       "congNoVTA_KHT9": 180440629.0,
       "tonVTTB_KHT9": 180440629.0,
       "thuHoiVTA_KHT9": 57276328.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -50683,6 +50764,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -50744,6 +50826,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 234907788.0,
       "thuHoiVTA_KHT9": 382023484.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -50833,6 +50916,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -51258,6 +51342,7 @@
       "congNoVTA_KHT9": 68011758.0,
       "tonVTTB_KHT9": 68011758.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -51319,6 +51404,7 @@
       "congNoVTA_KHT9": 3767291.0,
       "tonVTTB_KHT9": 3767291.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -51632,6 +51718,7 @@
       "congNoVTA_KHT9": 92613866.0,
       "tonVTTB_KHT9": 92613866.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -52001,6 +52088,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -52482,6 +52570,7 @@
       "congNoVTA_KHT9": 7136800.0,
       "tonVTTB_KHT9": 7136800.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -53271,6 +53360,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -53360,6 +53450,7 @@
       "congNoVTA_KHT9": 123950295.0,
       "tonVTTB_KHT9": 123950295.0,
       "thuHoiVTA_KHT9": 18729291.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -53421,6 +53512,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -53482,6 +53574,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -53767,6 +53860,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -54276,6 +54370,7 @@
       "congNoVTA_KHT9": 333574000.0,
       "tonVTTB_KHT9": 333574000.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -54365,6 +54460,7 @@
       "congNoVTA_KHT9": 117720089.0,
       "tonVTTB_KHT9": 117720089.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -54426,6 +54522,7 @@
       "congNoVTA_KHT9": 2024365.0,
       "tonVTTB_KHT9": 2024365.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -54487,6 +54584,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -54548,6 +54646,7 @@
       "congNoVTA_KHT9": 60981056.0,
       "tonVTTB_KHT9": 60981056.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -54609,6 +54708,7 @@
       "congNoVTA_KHT9": 29934397.0,
       "tonVTTB_KHT9": 29934397.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -55230,6 +55330,7 @@
       "congNoVTA_KHT9": 398281243.0,
       "tonVTTB_KHT9": 398281243.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -55375,7 +55476,8 @@
       "congNoVTA_KHT9": 129500000.0,
       "tonVTTB_KHT9": 129500000.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 103853000.0
     },
     {
       "soHD": "050644-BQLDA/VTNet-XDVT/XL2024",
@@ -55660,6 +55762,7 @@
       "congNoVTA_KHT9": 1022182153.0,
       "tonVTTB_KHT9": 1083987003.0,
       "thuHoiVTA_KHT9": 237695542.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -55721,6 +55824,7 @@
       "congNoVTA_KHT9": 30086800.0,
       "tonVTTB_KHT9": 30086800.0,
       "thuHoiVTA_KHT9": 5560000.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -55782,6 +55886,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -56263,6 +56368,7 @@
       "congNoVTA_KHT9": 270337067.0,
       "tonVTTB_KHT9": 270337067.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -56800,6 +56906,7 @@
       "congNoVTA_KHT9": 394500370.0,
       "tonVTTB_KHT9": 394500370.0,
       "thuHoiVTA_KHT9": 59279440.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -56889,6 +56996,7 @@
       "congNoVTA_KHT9": 1097982163.0,
       "tonVTTB_KHT9": 1097982163.0,
       "thuHoiVTA_KHT9": 95913632.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -56950,6 +57058,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -57095,6 +57204,7 @@
       "congNoVTA_KHT9": 376780277.0,
       "tonVTTB_KHT9": 376780277.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -57296,7 +57406,8 @@
       "congNoVTA_KHT9": 95149903.0,
       "tonVTTB_KHT9": 95149903.0,
       "thuHoiVTA_KHT9": 568302.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 6,
+      "canNhapKho_KHT9": 1347359766.0
     },
     {
       "soHD": "200603-BQLDA/VTNet-LD Hưng Thịnh Phát - Lam Sơn - Megacity/XL-2017",
@@ -57693,7 +57804,8 @@
       "congNoVTA_KHT9": 145537690.0,
       "tonVTTB_KHT9": 145537690.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 6,
+      "canNhapKho_KHT9": 567798183.0
     },
     {
       "soHD": "210609 - BQLDA/VTNet - CTCT/XL 2018",
@@ -57810,6 +57922,7 @@
       "congNoVTA_KHT9": 21728626.0,
       "tonVTTB_KHT9": 34222787.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -66551,7 +66664,8 @@
       "congNoVTA_KHT9": 3260934224.0,
       "tonVTTB_KHT9": 3260934224.0,
       "thuHoiVTA_KHT9": 597541490.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 59,
+      "canNhapKho_KHT9": 4937572237.0
     },
     {
       "soHD": "230806-HT/BDG-SAOTIEN/XL2024",
@@ -66612,6 +66726,7 @@
       "congNoVTA_KHT9": 60763300.0,
       "tonVTTB_KHT9": 60763300.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -68185,6 +68300,7 @@
       "congNoVTA_KHT9": 1462027262.0,
       "tonVTTB_KHT9": 1462027262.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -68386,6 +68502,7 @@
       "congNoVTA_KHT9": 255410333.0,
       "tonVTTB_KHT9": 255410333.0,
       "thuHoiVTA_KHT9": 41001813.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -68447,6 +68564,7 @@
       "congNoVTA_KHT9": 125592860.0,
       "tonVTTB_KHT9": 125592860.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -68508,6 +68626,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -68597,6 +68716,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -69274,6 +69394,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -69419,6 +69540,7 @@
       "congNoVTA_KHT9": 145103060.0,
       "tonVTTB_KHT9": 145103060.0,
       "thuHoiVTA_KHT9": 107391068.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -69480,6 +69602,7 @@
       "congNoVTA_KHT9": 250248777.0,
       "tonVTTB_KHT9": 250248777.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -69849,7 +69972,8 @@
       "congNoVTA_KHT9": 882230082.0,
       "tonVTTB_KHT9": 882230082.0,
       "thuHoiVTA_KHT9": 805104.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 71016924.0
     },
     {
       "soHD": "6220241-BQLDA/VTNet-Liên danh VCC-ACT-Xuân Long/PTV 2024_VCC",
@@ -70610,7 +70734,8 @@
       "congNoVTA_KHT9": 1592643969.0,
       "tonVTTB_KHT9": 1592643969.0,
       "thuHoiVTA_KHT9": 247340755.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 141174162.0
     },
     {
       "soHD": "28820233-BQLDA/VTNet-Liên danh VCC - ACT - Xuân Long/PTV 2023_VCC",
@@ -71091,7 +71216,8 @@
       "congNoVTA_KHT9": 873854442.0,
       "tonVTTB_KHT9": 873854442.0,
       "thuHoiVTA_KHT9": 197003394.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 583321675.0
     },
     {
       "soHD": "230603-HT/HCM-HOANGNHATVIET/XL-2026",
@@ -71292,6 +71418,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -71493,6 +71620,7 @@
       "congNoVTA_KHT9": 622317848.0,
       "tonVTTB_KHT9": 622317848.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -71554,6 +71682,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -71615,6 +71744,7 @@
       "congNoVTA_KHT9": 5532031.0,
       "tonVTTB_KHT9": 5532031.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -82260,6 +82390,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -85513,6 +85644,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -86610,6 +86742,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -88351,6 +88484,7 @@
       "congNoVTA_KHT9": 266649496.0,
       "tonVTTB_KHT9": 150365596.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -89308,6 +89442,7 @@
       "congNoVTA_KHT9": 180681364.0,
       "tonVTTB_KHT9": 180681364.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -89537,6 +89672,7 @@
       "congNoVTA_KHT9": 266356612.0,
       "tonVTTB_KHT9": 266356612.0,
       "thuHoiVTA_KHT9": 73003698.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -89626,6 +89762,7 @@
       "congNoVTA_KHT9": 27788086.0,
       "tonVTTB_KHT9": 27788086.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -93075,7 +93212,8 @@
       "congNoVTA_KHT9": 253515546.0,
       "tonVTTB_KHT9": 322306931.0,
       "thuHoiVTA_KHT9": 168293425.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 4,
+      "canNhapKho_KHT9": 9364838.0
     },
     {
       "soHD": "051204-HT/HCM-TTSAIGON/XL-2025",
@@ -93864,7 +94002,8 @@
       "congNoVTA_KHT9": 355447842.0,
       "tonVTTB_KHT9": 358598602.0,
       "thuHoiVTA_KHT9": 176685808.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 7,
+      "canNhapKho_KHT9": 46900607.0
     },
     {
       "soHD": "041101-BQLDA/VTNet- VCC/PTV 2021_VCC",
@@ -93925,6 +94064,7 @@
       "congNoVTA_KHT9": 36143322.0,
       "tonVTTB_KHT9": 36143322.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -94098,6 +94238,7 @@
       "congNoVTA_KHT9": 23484741.0,
       "tonVTTB_KHT9": 23484741.0,
       "thuHoiVTA_KHT9": 64364.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -94187,6 +94328,7 @@
       "congNoVTA_KHT9": 30988537.0,
       "tonVTTB_KHT9": 30988537.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -94416,6 +94558,7 @@
       "congNoVTA_KHT9": 1014300.0,
       "tonVTTB_KHT9": 1014300.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -94617,6 +94760,7 @@
       "congNoVTA_KHT9": 5991100.0,
       "tonVTTB_KHT9": 5991100.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -94874,7 +95018,8 @@
       "congNoVTA_KHT9": 264818629.0,
       "tonVTTB_KHT9": 264818629.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 47444119.0
     },
     {
       "soHD": "29820252-BQLDA/VTNet-LD VCC-ACT/PTV 2025_ACT",
@@ -95047,7 +95192,8 @@
       "congNoVTA_KHT9": 51353315.0,
       "tonVTTB_KHT9": 51353315.0,
       "thuHoiVTA_KHT9": 84636202.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 14193786.0
     },
     {
       "soHD": "02420254 -BQLDA/VTNet- Liên danh An Phát - Ánh Dương Nam/XL 2025_AP",
@@ -97040,6 +97186,7 @@
       "congNoVTA_KHT9": 547789578.0,
       "tonVTTB_KHT9": 554309710.0,
       "thuHoiVTA_KHT9": 46766460.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -97101,6 +97248,7 @@
       "congNoVTA_KHT9": 55556000.0,
       "tonVTTB_KHT9": 55556000.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -97162,6 +97310,7 @@
       "congNoVTA_KHT9": 1710720.0,
       "tonVTTB_KHT9": 1710720.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -97783,6 +97932,7 @@
       "congNoVTA_KHT9": 1110582746.0,
       "tonVTTB_KHT9": 1110582746.0,
       "thuHoiVTA_KHT9": 495912766.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -105992,7 +106142,8 @@
       "congNoVTA_KHT9": 1728849911.0,
       "tonVTTB_KHT9": 2144555121.0,
       "thuHoiVTA_KHT9": 963295443.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 4,
+      "canNhapKho_KHT9": 26330330.0
     },
     {
       "soHD": "260680-BQLDA/VTNet-An Phát/XL2024",
@@ -111121,7 +111272,8 @@
       "congNoVTA_KHT9": 1479250977.0,
       "tonVTTB_KHT9": 1480516929.0,
       "thuHoiVTA_KHT9": 395066084.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 19173800.0
     },
     {
       "soHD": "61220237BQLDA/VTNet-TTC/XL2023",
@@ -114934,7 +115086,8 @@
       "congNoVTA_KHT9": 730093978.0,
       "tonVTTB_KHT9": 730093978.0,
       "thuHoiVTA_KHT9": 542095410.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 3519705.0
     },
     {
       "soHD": "191106-HT/HCM-TANTHANH/XL-2025",
@@ -114995,6 +115148,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -117184,6 +117338,7 @@
       "congNoVTA_KHT9": 318943887.0,
       "tonVTTB_KHT9": 563942347.0,
       "thuHoiVTA_KHT9": 81724385.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -117273,6 +117428,7 @@
       "congNoVTA_KHT9": 52170000.0,
       "tonVTTB_KHT9": 52170000.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -118818,6 +118974,7 @@
       "congNoVTA_KHT9": 799643682.0,
       "tonVTTB_KHT9": 878436945.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -122043,7 +122200,8 @@
       "congNoVTA_KHT9": 477318060.0,
       "tonVTTB_KHT9": 477318060.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 2001632.0
     },
     {
       "soHD": "21420254-BQLDA/VTNet-VCC-An Phát-Long Hải/XL2025_AP",
@@ -131624,6 +131782,7 @@
       "congNoVTA_KHT9": 1585129738.0,
       "tonVTTB_KHT9": 1585129738.0,
       "thuHoiVTA_KHT9": 217306144.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -135605,6 +135764,7 @@
       "congNoVTA_KHT9": 916963925.0,
       "tonVTTB_KHT9": 916963925.0,
       "thuHoiVTA_KHT9": 18310600.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -135778,7 +135938,8 @@
       "congNoVTA_KHT9": 27022955.0,
       "tonVTTB_KHT9": 33782782.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 8456327.0
     },
     {
       "soHD": "5720227 -BQLDA/VTNet - VCC/XL 2022",
@@ -137183,6 +137344,7 @@
       "congNoVTA_KHT9": 473063351.0,
       "tonVTTB_KHT9": 473063351.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -137580,6 +137742,7 @@
       "congNoVTA_KHT9": 1423515916.0,
       "tonVTTB_KHT9": 1443957975.0,
       "thuHoiVTA_KHT9": 2365660450.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -139461,6 +139624,7 @@
       "congNoVTA_KHT9": 2267815436.0,
       "tonVTTB_KHT9": 2267815436.0,
       "thuHoiVTA_KHT9": 81671446.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -139522,6 +139686,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -139891,6 +140056,7 @@
       "congNoVTA_KHT9": 179857146.0,
       "tonVTTB_KHT9": 294994826.0,
       "thuHoiVTA_KHT9": 139460908.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -140120,6 +140286,7 @@
       "congNoVTA_KHT9": 1069400866.0,
       "tonVTTB_KHT9": 1069400866.0,
       "thuHoiVTA_KHT9": 199436394.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -140293,6 +140460,7 @@
       "congNoVTA_KHT9": 752232854.0,
       "tonVTTB_KHT9": 773820332.0,
       "thuHoiVTA_KHT9": 12655614.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -140354,6 +140522,7 @@
       "congNoVTA_KHT9": 872607.0,
       "tonVTTB_KHT9": 872607.0,
       "thuHoiVTA_KHT9": 130699871.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -140779,6 +140948,7 @@
       "congNoVTA_KHT9": 52795905.0,
       "tonVTTB_KHT9": 52795905.0,
       "thuHoiVTA_KHT9": 7038501.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -140924,6 +141094,7 @@
       "congNoVTA_KHT9": 226969179.0,
       "tonVTTB_KHT9": 226969179.0,
       "thuHoiVTA_KHT9": 365685813.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -140985,6 +141156,7 @@
       "congNoVTA_KHT9": 27725000.0,
       "tonVTTB_KHT9": 27725000.0,
       "thuHoiVTA_KHT9": 10665000.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141158,6 +141330,7 @@
       "congNoVTA_KHT9": 5726313.0,
       "tonVTTB_KHT9": 5726313.0,
       "thuHoiVTA_KHT9": 56037708.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141247,6 +141420,7 @@
       "congNoVTA_KHT9": 152631734.0,
       "tonVTTB_KHT9": 126222250.0,
       "thuHoiVTA_KHT9": 24684076.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141336,6 +141510,7 @@
       "congNoVTA_KHT9": 1601033.0,
       "tonVTTB_KHT9": 1601033.0,
       "thuHoiVTA_KHT9": 10544503.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141509,6 +141684,7 @@
       "congNoVTA_KHT9": 7116838.0,
       "tonVTTB_KHT9": 7116838.0,
       "thuHoiVTA_KHT9": 8299826.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141682,6 +141858,7 @@
       "congNoVTA_KHT9": 1232543692.0,
       "tonVTTB_KHT9": 1232543692.0,
       "thuHoiVTA_KHT9": 27090840.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141743,6 +141920,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141832,6 +142010,7 @@
       "congNoVTA_KHT9": 5079690.0,
       "tonVTTB_KHT9": 5079690.0,
       "thuHoiVTA_KHT9": 58202863.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -141921,6 +142100,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -142010,6 +142190,7 @@
       "congNoVTA_KHT9": 268530379.0,
       "tonVTTB_KHT9": 268530379.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -142099,7 +142280,8 @@
       "congNoVTA_KHT9": 4351839.0,
       "tonVTTB_KHT9": 4351839.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 3793383.0
     },
     {
       "soHD": "101002-HT/HCM-ACT/XL-2025",
@@ -142160,6 +142342,7 @@
       "congNoVTA_KHT9": 47460859.0,
       "tonVTTB_KHT9": 47460859.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -142725,6 +142908,7 @@
       "congNoVTA_KHT9": 540292654.0,
       "tonVTTB_KHT9": 540292654.0,
       "thuHoiVTA_KHT9": 424184436.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -143654,6 +143838,7 @@
       "congNoVTA_KHT9": 1058642811.0,
       "tonVTTB_KHT9": 1058642811.0,
       "thuHoiVTA_KHT9": 49856900.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -143967,6 +144152,7 @@
       "congNoVTA_KHT9": 11432110.0,
       "tonVTTB_KHT9": 12835737.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -144196,6 +144382,7 @@
       "congNoVTA_KHT9": 44422236.0,
       "tonVTTB_KHT9": 44422236.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -145853,7 +146040,8 @@
       "congNoVTA_KHT9": 449484659.0,
       "tonVTTB_KHT9": 449484659.0,
       "thuHoiVTA_KHT9": 436658048.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 55,
+      "canNhapKho_KHT9": 8933286394.0
     },
     {
       "soHD": "26720221-BQLDA/VTNet - LD VCC & ACT/PTV 2022_VCC",
@@ -146978,6 +147166,7 @@
       "congNoVTA_KHT9": 350557479.0,
       "tonVTTB_KHT9": 350557479.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -147067,6 +147256,7 @@
       "congNoVTA_KHT9": 10879750.0,
       "tonVTTB_KHT9": 10879750.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -147156,6 +147346,7 @@
       "congNoVTA_KHT9": 1184271.0,
       "tonVTTB_KHT9": 1184271.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -147273,6 +147464,7 @@
       "congNoVTA_KHT9": 16319625.0,
       "tonVTTB_KHT9": 16319625.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -148594,7 +148786,8 @@
       "congNoVTA_KHT9": 2689134115.0,
       "tonVTTB_KHT9": 2689134115.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 5,
+      "canNhapKho_KHT9": 129237932.0
     },
     {
       "soHD": "1208094-BQLDA/VTNet-Liên danh VCC - ACT/PTV2024_ACT",
@@ -149103,6 +149296,7 @@
       "congNoVTA_KHT9": 10953261462.0,
       "tonVTTB_KHT9": 10967430137.0,
       "thuHoiVTA_KHT9": 52632527.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -149388,6 +149582,7 @@
       "congNoVTA_KHT9": 214156900.0,
       "tonVTTB_KHT9": 214156900.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -149449,6 +149644,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 19696339.0,
       "thuHoiVTA_KHT9": 29666520.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -150882,7 +151078,8 @@
       "congNoVTA_KHT9": 4080147802.0,
       "tonVTTB_KHT9": 4080147802.0,
       "thuHoiVTA_KHT9": 230426856.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 40967630.0
     },
     {
       "soHD": "1208095-BQLDA/VTNet-Liên danh VCC-ACT-Long Hải-HTKT/PTV2024_LH",
@@ -151223,7 +151420,8 @@
       "congNoVTA_KHT9": 432220011.0,
       "tonVTTB_KHT9": 505893323.0,
       "thuHoiVTA_KHT9": 75793688.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 81659002.0
     },
     {
       "soHD": "1208095-BQLDA/VTNet-Liên danh VCC-ACT-Long Hải-HTKT/PTV2024_VCC",
@@ -152488,6 +152686,7 @@
       "congNoVTA_KHT9": 3127146153.0,
       "tonVTTB_KHT9": 3503402104.0,
       "thuHoiVTA_KHT9": 490784931.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -152801,7 +153000,8 @@
       "congNoVTA_KHT9": 325353733.0,
       "tonVTTB_KHT9": 328732489.0,
       "thuHoiVTA_KHT9": 773829944.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 233084748.0
     },
     {
       "soHD": "1208095-BQLDA/VTNet-Liên danh VCC-ACT-Long Hải-HTKT/PTV2024_ACT",
@@ -153394,7 +153594,8 @@
       "congNoVTA_KHT9": 579928475.0,
       "tonVTTB_KHT9": 741357842.0,
       "thuHoiVTA_KHT9": 642485306.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 4,
+      "canNhapKho_KHT9": 339177423.0
     },
     {
       "soHD": "0710001-BQLDA/VTNet-Liên danh VCC-ACT-Long Hải-HTKT/PTV2024_ACT",
@@ -153595,6 +153796,7 @@
       "congNoVTA_KHT9": 36452035.0,
       "tonVTTB_KHT9": 36452035.0,
       "thuHoiVTA_KHT9": 48770207.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -154636,6 +154838,7 @@
       "congNoVTA_KHT9": 2225523507.0,
       "tonVTTB_KHT9": 2225523507.0,
       "thuHoiVTA_KHT9": 38419450.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -155117,7 +155320,8 @@
       "congNoVTA_KHT9": 406351263.0,
       "tonVTTB_KHT9": 472393515.0,
       "thuHoiVTA_KHT9": 66210981.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 80851571.0
     },
     {
       "soHD": "0710001-BQLDA/VTNet-Liên danh VCC-ACT-Long Hải-HTKT/PTV2024_COMAS",
@@ -155178,7 +155382,8 @@
       "congNoVTA_KHT9": 852120.0,
       "tonVTTB_KHT9": 852120.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 140208099.0
     },
     {
       "soHD": "290504-BQLDA/VTNet-Liên danh VCC-Xuân Long-ACT/PTV 2024_XL",
@@ -155463,6 +155668,7 @@
       "congNoVTA_KHT9": 423615002.0,
       "tonVTTB_KHT9": 430784760.0,
       "thuHoiVTA_KHT9": 7169758.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -155860,7 +156066,8 @@
       "congNoVTA_KHT9": 720556317.0,
       "tonVTTB_KHT9": 720556317.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 4,
+      "canNhapKho_KHT9": 1154020889.0
     },
     {
       "soHD": "2907034-BQLDA/VTNet-Liên danh VCC - ACT/PTV 2024_ACT",
@@ -158553,7 +158760,8 @@
       "congNoVTA_KHT9": 922660093.0,
       "tonVTTB_KHT9": 1112278874.0,
       "thuHoiVTA_KHT9": 91799830.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 5,
+      "canNhapKho_KHT9": 178871045.0
     },
     {
       "soHD": "2907034-BQLDA/VTNet-Liên danh VCC - ACT/PTV 2024_VCC",
@@ -159958,7 +160166,8 @@
       "congNoVTA_KHT9": 514322342.0,
       "tonVTTB_KHT9": 514322342.0,
       "thuHoiVTA_KHT9": 26084760.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 15377880.0
     },
     {
       "soHD": "0511004-BQLDA/VTNet-Liên danh VCC - ACT/PTV2024_ACT",
@@ -161923,7 +162132,8 @@
       "congNoVTA_KHT9": 1099798737.0,
       "tonVTTB_KHT9": 1127655757.0,
       "thuHoiVTA_KHT9": 125910758.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 5470800.0
     },
     {
       "soHD": "0511004-BQLDA/VTNet-Liên danh VCC - ACT/PTV2024_VCC",
@@ -166212,7 +166422,8 @@
       "congNoVTA_KHT9": 1262626493.0,
       "tonVTTB_KHT9": 1677028258.0,
       "thuHoiVTA_KHT9": 28811275.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 8,
+      "canNhapKho_KHT9": 31267802.0
     },
     {
       "soHD": "0511003-BQLDA/VTNet-Liên danh VCC - ACT - Long Hải - HTKT/PTV2024_ACT",
@@ -169325,7 +169536,8 @@
       "congNoVTA_KHT9": 1177549300.0,
       "tonVTTB_KHT9": 1187516518.0,
       "thuHoiVTA_KHT9": 769570654.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 350508.0
     },
     {
       "soHD": "0511003-BQLDA/VTNet-Liên danh VCC - ACT - Long Hải - HTKT/PTV2024_VCC",
@@ -174202,7 +174414,8 @@
       "congNoVTA_KHT9": 3053879475.0,
       "tonVTTB_KHT9": 3202158593.0,
       "thuHoiVTA_KHT9": 11621083347.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 4908643.0
     },
     {
       "soHD": "0511003-BQLDA/VTNet-Liên danh VCC - ACT - Long Hải - HTKT/PTV2024_LH",
@@ -175579,7 +175792,8 @@
       "congNoVTA_KHT9": 407331587.0,
       "tonVTTB_KHT9": 577965535.0,
       "thuHoiVTA_KHT9": 79627895.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 79044136.0
     },
     {
       "soHD": "1208093- BQLDA/VTNet-Liên danh VCC-Long HảiACT/PTV 2024_VCC",
@@ -175948,7 +176162,8 @@
       "congNoVTA_KHT9": 724336765.0,
       "tonVTTB_KHT9": 724336765.0,
       "thuHoiVTA_KHT9": 313746902.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 336218916.0
     },
     {
       "soHD": "1208097- BQLDA/VTNet-Liên danh VCC- Long Hải/PTV2024_VCC",
@@ -176765,6 +176980,7 @@
       "congNoVTA_KHT9": 1292691171.0,
       "tonVTTB_KHT9": 1292691171.0,
       "thuHoiVTA_KHT9": 75546422.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -177666,6 +177882,7 @@
       "congNoVTA_KHT9": 1860943209.0,
       "tonVTTB_KHT9": 1860943209.0,
       "thuHoiVTA_KHT9": 271953061.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -177755,6 +177972,7 @@
       "congNoVTA_KHT9": 172333270.0,
       "tonVTTB_KHT9": 175645670.0,
       "thuHoiVTA_KHT9": 3356368.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -178404,7 +178622,8 @@
       "congNoVTA_KHT9": 897577431.0,
       "tonVTTB_KHT9": 897577431.0,
       "thuHoiVTA_KHT9": 452710159.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 103344636.0
     },
     {
       "soHD": "61120243-BQLDA/VTNet - VCC/XL2024",
@@ -180509,6 +180728,7 @@
       "congNoVTA_KHT9": 12100895.0,
       "tonVTTB_KHT9": 12100895.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -182474,7 +182694,8 @@
       "congNoVTA_KHT9": 763190124.0,
       "tonVTTB_KHT9": 763190124.0,
       "thuHoiVTA_KHT9": 8695223.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 6894021.0
     },
     {
       "soHD": "12920259- BQLDA/VTNet -Liên danh VCC-ACT/PTV 2025_VCC",
@@ -184187,7 +184408,8 @@
       "congNoVTA_KHT9": 2398995181.0,
       "tonVTTB_KHT9": 2398995181.0,
       "thuHoiVTA_KHT9": 103809643.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 14,
+      "canNhapKho_KHT9": 1565444037.0
     },
     {
       "soHD": "12920259- BQLDA/VTNet -Liên danh VCC-ACT/PTV 2025_ACT",
@@ -184500,7 +184722,8 @@
       "congNoVTA_KHT9": 187223796.0,
       "tonVTTB_KHT9": 187223796.0,
       "thuHoiVTA_KHT9": 125097853.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 8,
+      "canNhapKho_KHT9": 876427317.0
     },
     {
       "soHD": "26720254- BQLDA/VTNet -Liên danh VCC-Long Hải-ACT /PTV 2025_ACT",
@@ -184897,6 +185120,7 @@
       "congNoVTA_KHT9": 172300457.0,
       "tonVTTB_KHT9": 213483245.0,
       "thuHoiVTA_KHT9": 5354672.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -185294,6 +185518,7 @@
       "congNoVTA_KHT9": 146994062.0,
       "tonVTTB_KHT9": 192590245.0,
       "thuHoiVTA_KHT9": 38262118.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -214587,7 +214812,8 @@
       "congNoVTA_KHT9": 1716576145.0,
       "tonVTTB_KHT9": 2060580637.0,
       "thuHoiVTA_KHT9": 199524418.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 4,
+      "canNhapKho_KHT9": 122685145.0
     },
     {
       "soHD": "7820252-BQLDA/VTNet-Liên danh VCC-ACT/PTV2025_VCC",
@@ -229628,7 +229854,8 @@
       "congNoVTA_KHT9": 1838216452.0,
       "tonVTTB_KHT9": 2763059404.0,
       "thuHoiVTA_KHT9": 304373870.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 5,
+      "canNhapKho_KHT9": 141081798.0
     },
     {
       "soHD": "8820251-BQLDA/VTNet-LD VCC-ACT/PTV2025_ACT",
@@ -260517,7 +260744,8 @@
       "congNoVTA_KHT9": 1416059838.0,
       "tonVTTB_KHT9": 1486761616.0,
       "thuHoiVTA_KHT9": 81438281.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 14410045.0
     },
     {
       "soHD": "8820251-BQLDA/VTNet-LD VCC-ACT/PTV2025_VCC",
@@ -261558,6 +261786,7 @@
       "congNoVTA_KHT9": 604471388.0,
       "tonVTTB_KHT9": 865908415.0,
       "thuHoiVTA_KHT9": 31406680.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -261759,6 +261988,7 @@
       "congNoVTA_KHT9": 793654.0,
       "tonVTTB_KHT9": 793654.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -261820,6 +262050,7 @@
       "congNoVTA_KHT9": 111638.0,
       "tonVTTB_KHT9": 111638.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -261965,6 +262196,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -262278,6 +262510,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -279727,7 +279960,8 @@
       "congNoVTA_KHT9": 1618380698.0,
       "tonVTTB_KHT9": 3645973564.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 46008471.0
     },
     {
       "soHD": "24920251-BQLDA/VTNet- VCC/PTV2025_VCC",
@@ -281076,7 +281310,8 @@
       "congNoVTA_KHT9": 662823446.0,
       "tonVTTB_KHT9": 662823446.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 10678025.0
     },
     {
       "soHD": "71020252-BQLDA/VTNet-Liên danh VCC-ACT/PTV2025_VCC",
@@ -289677,6 +289912,7 @@
       "congNoVTA_KHT9": 2758099341.0,
       "tonVTTB_KHT9": 3198079764.0,
       "thuHoiVTA_KHT9": 25083535.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -291334,7 +291570,8 @@
       "congNoVTA_KHT9": 825440330.0,
       "tonVTTB_KHT9": 998795140.0,
       "thuHoiVTA_KHT9": 69711402.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 42172967.0
     },
     {
       "soHD": "11220261-BQLDA/VTNet-VTK/XL 2026",
@@ -291619,6 +291856,7 @@
       "congNoVTA_KHT9": 24820556.0,
       "tonVTTB_KHT9": 25974006.0,
       "thuHoiVTA_KHT9": 1153450.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -291708,6 +291946,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -293281,6 +293520,7 @@
       "congNoVTA_KHT9": 1494830480.0,
       "tonVTTB_KHT9": 1494830480.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -293678,6 +293918,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -293823,6 +294064,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294052,6 +294294,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294225,6 +294468,7 @@
       "congNoVTA_KHT9": 1038049151.0,
       "tonVTTB_KHT9": 1038049151.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294342,6 +294586,7 @@
       "congNoVTA_KHT9": 4689005.0,
       "tonVTTB_KHT9": 4689005.0,
       "thuHoiVTA_KHT9": 982224.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294459,6 +294704,7 @@
       "congNoVTA_KHT9": 50628614.0,
       "tonVTTB_KHT9": 50628614.0,
       "thuHoiVTA_KHT9": 7027537.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294520,6 +294766,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294609,6 +294856,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294698,6 +294946,7 @@
       "congNoVTA_KHT9": 18014220.0,
       "tonVTTB_KHT9": 19019004.0,
       "thuHoiVTA_KHT9": 1004784.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294759,6 +295008,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -294820,6 +295070,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295273,6 +295524,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295334,6 +295586,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295451,6 +295704,7 @@
       "congNoVTA_KHT9": 40735340.0,
       "tonVTTB_KHT9": 40735340.0,
       "thuHoiVTA_KHT9": 32445536.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295512,6 +295766,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295573,6 +295828,7 @@
       "congNoVTA_KHT9": 835560.0,
       "tonVTTB_KHT9": 835560.0,
       "thuHoiVTA_KHT9": 311599661.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295634,6 +295890,7 @@
       "congNoVTA_KHT9": 22669980.0,
       "tonVTTB_KHT9": 22669980.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295695,6 +295952,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -295756,6 +296014,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -298925,6 +299184,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -307918,6 +308178,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -313299,6 +313560,7 @@
       "congNoVTA_KHT9": 437524036.0,
       "tonVTTB_KHT9": 437524036.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -317168,6 +317430,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -317929,6 +318192,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -320034,6 +320298,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -321411,6 +321676,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -323292,6 +323558,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -324473,6 +324740,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -325682,6 +325950,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -325743,6 +326012,7 @@
       "congNoVTA_KHT9": 1031588965.0,
       "tonVTTB_KHT9": 1031588965.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -326028,6 +326298,7 @@
       "congNoVTA_KHT9": 135722498.0,
       "tonVTTB_KHT9": 135722498.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -326649,7 +326920,8 @@
       "congNoVTA_KHT9": 619635949.0,
       "tonVTTB_KHT9": 619635949.0,
       "thuHoiVTA_KHT9": 12223062.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 12,
+      "canNhapKho_KHT9": 601674545.0
     },
     {
       "soHD": "021001-ĐT/VTNet-Hưng Thịnh Phát/XL2013",
@@ -326822,6 +327094,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -326883,6 +327156,7 @@
       "congNoVTA_KHT9": 48762753.0,
       "tonVTTB_KHT9": 48762753.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -326944,6 +327218,7 @@
       "congNoVTA_KHT9": 78654246.0,
       "tonVTTB_KHT9": 78654246.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -327061,6 +327336,7 @@
       "congNoVTA_KHT9": 120908757.0,
       "tonVTTB_KHT9": 120908757.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -327122,6 +327398,7 @@
       "congNoVTA_KHT9": 25876504.0,
       "tonVTTB_KHT9": 25876504.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -327379,6 +327656,7 @@
       "congNoVTA_KHT9": 86957560.0,
       "tonVTTB_KHT9": 86957560.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -327720,6 +327998,7 @@
       "congNoVTA_KHT9": 20348574.0,
       "tonVTTB_KHT9": 20348574.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -330245,7 +330524,8 @@
       "congNoVTA_KHT9": 1541747292.0,
       "tonVTTB_KHT9": 1541747292.0,
       "thuHoiVTA_KHT9": 588269609.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 73,
+      "canNhapKho_KHT9": 11120935263.0
     },
     {
       "soHD": "120103-BQLDA/VTNet –Tân Thanh/XL 2022",
@@ -330306,6 +330586,7 @@
       "congNoVTA_KHT9": 941188354.0,
       "tonVTTB_KHT9": 941188354.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -333699,6 +333980,7 @@
       "congNoVTA_KHT9": 2836826214.0,
       "tonVTTB_KHT9": 2836826214.0,
       "thuHoiVTA_KHT9": 1463420080.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -333816,6 +334098,7 @@
       "congNoVTA_KHT9": 401970507.0,
       "tonVTTB_KHT9": 401970507.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -333877,6 +334160,7 @@
       "congNoVTA_KHT9": 226946258.0,
       "tonVTTB_KHT9": 226946258.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -333966,6 +334250,7 @@
       "congNoVTA_KHT9": 249693240.0,
       "tonVTTB_KHT9": 249693240.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -334027,6 +334312,7 @@
       "congNoVTA_KHT9": 243085086.0,
       "tonVTTB_KHT9": 243085086.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -337280,6 +337566,7 @@
       "congNoVTA_KHT9": 1232250860.0,
       "tonVTTB_KHT9": 1204772860.0,
       "thuHoiVTA_KHT9": 1220992.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -337565,7 +337852,8 @@
       "congNoVTA_KHT9": 143102080.0,
       "tonVTTB_KHT9": 143102080.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 6,
+      "canNhapKho_KHT9": 176599320.0
     },
     {
       "soHD": "081216-TTHT/VTNet-LD Hưng Thịnh Phát - Megacity/XL2014",
@@ -338382,7 +338670,8 @@
       "congNoVTA_KHT9": 97161167.0,
       "tonVTTB_KHT9": 97161167.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 14,
+      "canNhapKho_KHT9": 380798208.0
     },
     {
       "soHD": "1809032-BQLDA/VTNet-Năng lượng mới/XL2024",
@@ -338443,7 +338732,8 @@
       "congNoVTA_KHT9": 8194000.0,
       "tonVTTB_KHT9": 8194000.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 259000.0
     },
     {
       "soHD": "260605-HT/HCM-TASA/XL-2026",
@@ -338784,6 +339074,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -338845,6 +339136,7 @@
       "congNoVTA_KHT9": 1597005.0,
       "tonVTTB_KHT9": 1597005.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -338934,6 +339226,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -339163,7 +339456,8 @@
       "congNoVTA_KHT9": 633751701.0,
       "tonVTTB_KHT9": 633751701.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 186306934.0
     },
     {
       "soHD": "171120221-BQLDA/VTNet-VCC/PTV 2022_VCC",
@@ -340932,7 +341226,8 @@
       "congNoVTA_KHT9": 1786530785.0,
       "tonVTTB_KHT9": 1786530785.0,
       "thuHoiVTA_KHT9": 570114.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 6,
+      "canNhapKho_KHT9": 140267477.0
     },
     {
       "soHD": "6320233-BQLDA/VTNet-Liên Danh VCC & Long Hải/PTV 2023_VCC",
@@ -341301,6 +341596,7 @@
       "congNoVTA_KHT9": 1491462778.0,
       "tonVTTB_KHT9": 1491462778.0,
       "thuHoiVTA_KHT9": 45297867.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -341362,6 +341658,7 @@
       "congNoVTA_KHT9": 110650471.0,
       "tonVTTB_KHT9": 110650471.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -341423,7 +341720,8 @@
       "congNoVTA_KHT9": 24123718.0,
       "tonVTTB_KHT9": 24123718.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 156258118.0
     },
     {
       "soHD": "100702-HT/HCM-ACT/XL-2025",
@@ -341876,6 +342174,7 @@
       "congNoVTA_KHT9": 83167713.0,
       "tonVTTB_KHT9": 86799673.0,
       "thuHoiVTA_KHT9": 120565031.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -341965,6 +342264,7 @@
       "congNoVTA_KHT9": 1908192.0,
       "tonVTTB_KHT9": 1908192.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -342138,6 +342438,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -342703,6 +343004,7 @@
       "congNoVTA_KHT9": 4696362.0,
       "tonVTTB_KHT9": 4696362.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -342960,6 +343262,7 @@
       "congNoVTA_KHT9": 42840240.0,
       "tonVTTB_KHT9": 42840240.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -343077,6 +343380,7 @@
       "congNoVTA_KHT9": 181618398.0,
       "tonVTTB_KHT9": 181618398.0,
       "thuHoiVTA_KHT9": 20188040.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -343138,6 +343442,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -344375,6 +344680,7 @@
       "congNoVTA_KHT9": 285153133.0,
       "tonVTTB_KHT9": 285153133.0,
       "thuHoiVTA_KHT9": 19728000.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -344436,6 +344742,7 @@
       "congNoVTA_KHT9": 27734920.0,
       "tonVTTB_KHT9": 27734920.0,
       "thuHoiVTA_KHT9": 75874830.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -344721,6 +345028,7 @@
       "congNoVTA_KHT9": 831057040.0,
       "tonVTTB_KHT9": 831057040.0,
       "thuHoiVTA_KHT9": 431871530.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -344782,6 +345090,7 @@
       "congNoVTA_KHT9": 31076428.0,
       "tonVTTB_KHT9": 31076428.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -345123,6 +345432,7 @@
       "congNoVTA_KHT9": 14206080.0,
       "tonVTTB_KHT9": 14206080.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -345268,6 +345578,7 @@
       "congNoVTA_KHT9": 7520544.0,
       "tonVTTB_KHT9": 7520544.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -345637,6 +345948,7 @@
       "congNoVTA_KHT9": 110407000.0,
       "tonVTTB_KHT9": 110407000.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -346958,6 +347270,7 @@
       "congNoVTA_KHT9": 1695834200.0,
       "tonVTTB_KHT9": 1695834200.0,
       "thuHoiVTA_KHT9": 232242719.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -347019,6 +347332,7 @@
       "congNoVTA_KHT9": 205286400.0,
       "tonVTTB_KHT9": 205286400.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -347080,6 +347394,7 @@
       "congNoVTA_KHT9": 672883200.0,
       "tonVTTB_KHT9": 672883200.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -347141,6 +347456,7 @@
       "congNoVTA_KHT9": 561606210.0,
       "tonVTTB_KHT9": 561606210.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -347202,6 +347518,7 @@
       "congNoVTA_KHT9": 637388810.0,
       "tonVTTB_KHT9": 637388810.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -348019,6 +348336,7 @@
       "congNoVTA_KHT9": 354991552.0,
       "tonVTTB_KHT9": 354991552.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -348080,6 +348398,7 @@
       "congNoVTA_KHT9": 20802104.0,
       "tonVTTB_KHT9": 20802104.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -348281,6 +348600,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -348426,6 +348746,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -348599,7 +348920,8 @@
       "congNoVTA_KHT9": 11673635.0,
       "tonVTTB_KHT9": 15417835.0,
       "thuHoiVTA_KHT9": 16588786.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 3,
+      "canNhapKho_KHT9": 14416527.0
     },
     {
       "soHD": "144202566-BQLDA/VTNet-An Phát/XL2025",
@@ -350984,6 +351306,7 @@
       "congNoVTA_KHT9": 1865716127.0,
       "tonVTTB_KHT9": 1865716127.0,
       "thuHoiVTA_KHT9": 430989050.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -351185,6 +351508,7 @@
       "congNoVTA_KHT9": 14479592.0,
       "tonVTTB_KHT9": 14479592.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -351246,6 +351570,7 @@
       "congNoVTA_KHT9": 14059940.0,
       "tonVTTB_KHT9": 14059940.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -351307,6 +351632,7 @@
       "congNoVTA_KHT9": 31868000.0,
       "tonVTTB_KHT9": 31868000.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -351368,6 +351694,7 @@
       "congNoVTA_KHT9": 323599003.0,
       "tonVTTB_KHT9": 323599003.0,
       "thuHoiVTA_KHT9": 3028660.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -359745,7 +360072,8 @@
       "congNoVTA_KHT9": 382504387.0,
       "tonVTTB_KHT9": 382504387.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 2,
+      "canNhapKho_KHT9": 3182000.0
     },
     {
       "soHD": "090501 -BQLDA/VTNet - VCC./XL/2020",
@@ -359862,6 +360190,7 @@
       "congNoVTA_KHT9": 17195472.0,
       "tonVTTB_KHT9": 17195472.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -360007,6 +360336,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -360068,6 +360398,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -360717,6 +361048,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -361170,7 +361502,8 @@
       "congNoVTA_KHT9": 633432110.0,
       "tonVTTB_KHT9": 788253290.0,
       "thuHoiVTA_KHT9": 1117824490.0,
-      "canNhapKho_KHT9": 0.0
+      "soCT_CanNhapKho_KHT9": 1,
+      "canNhapKho_KHT9": 33650050.0
     },
     {
       "soHD": "060207-HT/HCM-ACT/XL-2026",
@@ -361231,6 +361564,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 135713656.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -361320,6 +361654,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 250619686.0,
       "thuHoiVTA_KHT9": 2957993.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -361381,6 +361716,7 @@
       "congNoVTA_KHT9": 28824916.0,
       "tonVTTB_KHT9": 28824916.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362338,6 +362674,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 49766800.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362399,6 +362736,7 @@
       "congNoVTA_KHT9": 360000.0,
       "tonVTTB_KHT9": 360000.0,
       "thuHoiVTA_KHT9": 1932000.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362488,6 +362826,7 @@
       "congNoVTA_KHT9": 32897272.0,
       "tonVTTB_KHT9": 32897272.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362577,6 +362916,7 @@
       "congNoVTA_KHT9": 12807633.0,
       "tonVTTB_KHT9": 12807633.0,
       "thuHoiVTA_KHT9": 286320.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362638,7 +362978,8 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 114071734.0,
       "thuHoiVTA_KHT9": 0.0,
-      "canNhapKho_KHT9": 4205400.0
+      "soCT_CanNhapKho_KHT9": 0,
+      "canNhapKho_KHT9": 0.0
     },
     {
       "soHD": "220901-HT/HCM-HoangNamPhat/XL-2025",
@@ -362699,6 +363040,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362760,6 +363102,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362821,6 +363164,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362882,6 +363226,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -362943,6 +363288,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363004,6 +363350,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363065,6 +363412,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363126,6 +363474,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363187,6 +363536,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363248,6 +363598,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363309,6 +363660,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363370,6 +363722,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363431,6 +363784,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363492,6 +363846,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363553,6 +363908,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363614,6 +363970,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363675,6 +364032,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363736,6 +364094,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363797,6 +364156,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363858,6 +364218,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363919,6 +364280,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -363980,6 +364342,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364041,6 +364404,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364102,6 +364466,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364163,6 +364528,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364224,6 +364590,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364285,6 +364652,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364346,6 +364714,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364407,6 +364776,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364468,6 +364838,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364529,6 +364900,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364590,6 +364962,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364651,6 +365024,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364712,6 +365086,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364773,6 +365148,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364834,6 +365210,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364895,6 +365272,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -364956,6 +365334,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365017,6 +365396,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365078,6 +365458,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365139,6 +365520,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365200,6 +365582,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365261,6 +365644,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365322,6 +365706,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365383,6 +365768,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365444,6 +365830,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365505,6 +365892,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365566,6 +365954,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365627,6 +366016,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365688,6 +366078,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365749,6 +366140,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365810,6 +366202,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365871,6 +366264,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365932,6 +366326,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -365993,6 +366388,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366054,6 +366450,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366115,6 +366512,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366176,6 +366574,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366237,6 +366636,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366298,6 +366698,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366359,6 +366760,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366420,6 +366822,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366481,6 +366884,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366542,6 +366946,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366603,6 +367008,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366664,6 +367070,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366725,6 +367132,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366786,6 +367194,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366847,6 +367256,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366908,6 +367318,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -366969,6 +367380,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367030,6 +367442,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367091,6 +367504,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367152,6 +367566,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367213,6 +367628,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367274,6 +367690,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367335,6 +367752,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367396,6 +367814,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367457,6 +367876,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367518,6 +367938,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367579,6 +368000,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367640,6 +368062,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367701,6 +368124,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367762,6 +368186,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367823,6 +368248,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367884,6 +368310,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -367945,6 +368372,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368006,6 +368434,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368067,6 +368496,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368128,6 +368558,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368189,6 +368620,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368250,6 +368682,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368311,6 +368744,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368372,6 +368806,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368433,6 +368868,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368494,6 +368930,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368555,6 +368992,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368616,6 +369054,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368677,6 +369116,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368738,6 +369178,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368799,6 +369240,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368860,6 +369302,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368921,6 +369364,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -368982,6 +369426,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369043,6 +369488,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369104,6 +369550,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369165,6 +369612,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369226,6 +369674,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369287,6 +369736,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369348,6 +369798,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369409,6 +369860,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369470,6 +369922,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369531,6 +369984,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369592,6 +370046,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369653,6 +370108,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369714,6 +370170,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369775,6 +370232,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369836,6 +370294,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369897,6 +370356,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -369958,6 +370418,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370019,6 +370480,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370080,6 +370542,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370141,6 +370604,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370202,6 +370666,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370263,6 +370728,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370324,6 +370790,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370385,6 +370852,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370446,6 +370914,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370507,6 +370976,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370568,6 +371038,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370629,6 +371100,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370690,6 +371162,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370751,6 +371224,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370812,6 +371286,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370873,6 +371348,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370934,6 +371410,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -370995,6 +371472,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371056,6 +371534,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371117,6 +371596,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371178,6 +371658,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371239,6 +371720,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371300,6 +371782,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371361,6 +371844,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371422,6 +371906,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371483,6 +371968,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371544,6 +372030,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371605,6 +372092,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371666,6 +372154,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371727,6 +372216,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371788,6 +372278,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371849,6 +372340,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371910,6 +372402,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -371971,6 +372464,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372032,6 +372526,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372093,6 +372588,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372154,6 +372650,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372215,6 +372712,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372276,6 +372774,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372337,6 +372836,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372398,6 +372898,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372459,6 +372960,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372520,6 +373022,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372581,6 +373084,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372642,6 +373146,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372703,6 +373208,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372764,6 +373270,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372825,6 +373332,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372886,6 +373394,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -372947,6 +373456,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373008,6 +373518,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373069,6 +373580,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373130,6 +373642,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373191,6 +373704,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373252,6 +373766,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373313,6 +373828,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373374,6 +373890,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373435,6 +373952,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373496,6 +374014,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373557,6 +374076,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373618,6 +374138,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373679,6 +374200,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373740,6 +374262,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373801,6 +374324,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373862,6 +374386,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373923,6 +374448,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -373984,6 +374510,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374045,6 +374572,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374106,6 +374634,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374167,6 +374696,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374228,6 +374758,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374289,6 +374820,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374350,6 +374882,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374411,6 +374944,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374472,6 +375006,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374533,6 +375068,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374594,6 +375130,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374655,6 +375192,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374716,6 +375254,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374777,6 +375316,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374838,6 +375378,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374899,6 +375440,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -374960,6 +375502,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375021,6 +375564,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375082,6 +375626,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375143,6 +375688,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375204,6 +375750,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375265,6 +375812,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375326,6 +375874,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375387,6 +375936,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375448,6 +375998,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375509,6 +376060,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375570,6 +376122,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375631,6 +376184,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375692,6 +376246,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375753,6 +376308,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375814,6 +376370,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375875,6 +376432,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375936,6 +376494,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -375997,6 +376556,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376058,6 +376618,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376119,6 +376680,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376180,6 +376742,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376241,6 +376804,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376302,6 +376866,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376363,6 +376928,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376424,6 +376990,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376485,6 +377052,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376546,6 +377114,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376607,6 +377176,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376668,6 +377238,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376729,6 +377300,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376790,6 +377362,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376851,6 +377424,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376912,6 +377486,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -376973,6 +377548,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377034,6 +377610,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377095,6 +377672,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377156,6 +377734,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377217,6 +377796,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377278,6 +377858,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377339,6 +377920,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377400,6 +377982,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377461,6 +378044,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377522,6 +378106,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377583,6 +378168,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377644,6 +378230,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377705,6 +378292,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377766,6 +378354,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377827,6 +378416,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377888,6 +378478,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -377949,6 +378540,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378010,6 +378602,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378071,6 +378664,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378132,6 +378726,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378193,6 +378788,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378254,6 +378850,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378315,6 +378912,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378376,6 +378974,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378437,6 +379036,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378498,6 +379098,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378559,6 +379160,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378620,6 +379222,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378681,6 +379284,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378742,6 +379346,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378803,6 +379408,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378864,6 +379470,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378925,6 +379532,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -378986,6 +379594,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379047,6 +379656,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379108,6 +379718,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379169,6 +379780,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379230,6 +379842,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379291,6 +379904,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379352,6 +379966,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379413,6 +380028,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379474,6 +380090,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379535,6 +380152,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379596,6 +380214,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379657,6 +380276,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379718,6 +380338,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379779,6 +380400,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379840,6 +380462,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379901,6 +380524,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -379962,6 +380586,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380023,6 +380648,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380084,6 +380710,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380145,6 +380772,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380206,6 +380834,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380267,6 +380896,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380328,6 +380958,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380389,6 +381020,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380450,6 +381082,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380511,6 +381144,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380572,6 +381206,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380633,6 +381268,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380694,6 +381330,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380755,6 +381392,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380816,6 +381454,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380877,6 +381516,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380938,6 +381578,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -380999,6 +381640,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381060,6 +381702,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381121,6 +381764,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381182,6 +381826,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381243,6 +381888,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381304,6 +381950,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381365,6 +382012,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381426,6 +382074,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     },
     {
@@ -381487,6 +382136,7 @@
       "congNoVTA_KHT9": 0.0,
       "tonVTTB_KHT9": 0.0,
       "thuHoiVTA_KHT9": 0.0,
+      "soCT_CanNhapKho_KHT9": 0,
       "canNhapKho_KHT9": 0.0
     }
   ]
@@ -382273,6 +382923,7 @@ function filterKpiPartnerTable() {
                         congNoVTA: 0,
                         tonVTTB: 0,
                         thuHoi: 0,
+                        soCT_CanNhapKho: 0,
                         canNhapKho: 0
                     };
                 }
@@ -382282,6 +382933,7 @@ function filterKpiPartnerTable() {
                 s.congNoVTA += (hd.congNoVTA_KHT9 || 0);
                 s.tonVTTB += (hd.tonVTTB_KHT9 || 0);
                 s.thuHoi += (hd.thuHoiVTA_KHT9 || 0);
+                s.soCT_CanNhapKho += (hd.soCT_CanNhapKho_KHT9 || 0);
                 s.canNhapKho += (hd.canNhapKho_KHT9 || 0);
             });
 
