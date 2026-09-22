@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viettel - Dashboard Cảnh Báo Tiến Độ KPI & Nút Thắt Timeline Theo Nhà Thầu</title>
+    <title>Viettel - Dashboard Tổng Hợp KPI & Công Nợ VTA Theo Hợp Đồng & Đối Tác</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -48,7 +48,7 @@
     <div id="loadingOverlay" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-[9999] hidden flex flex-col items-center justify-center text-white">
         <div class="animate-spin rounded-full h-16 w-16 border-4 border-viettel-red border-t-transparent mb-4"></div>
         <p class="text-lg font-black tracking-wide">Đang nạp & phân tích dữ liệu Google Sheet...</p>
-        <p class="text-xs text-slate-300 mt-1">Hệ thống đang tự động đánh giá nút thắt timeline cho 12.800+ công trình</p>
+        <p class="text-xs text-slate-300 mt-1">Hệ thống đang tự động tính toán số liệu Hợp đồng, Số CT & 6 chỉ số KPI</p>
     </div>
 
     <div class="max-w-[1600px] mx-auto space-y-5">
@@ -56,17 +56,16 @@
         <!-- HEADER BAR -->
         <div class="bg-white p-5 rounded-2xl card-shadow border-t-4 border-viettel-red flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
             <div class="flex items-center gap-4">
-                <!-- Viettel Red Logo Badge -->
                 <div class="bg-viettel-red text-white px-4 py-2 rounded-2xl shadow-md flex flex-col items-center justify-center">
                     <span class="font-black text-2xl tracking-tighter leading-none">viettel</span>
                     <span class="text-[9px] font-medium tracking-normal mt-0.5 opacity-90">Điều Hành KPI</span>
                 </div>
                 <div>
                     <h1 class="text-xl md:text-2xl font-black text-slate-900 flex items-center gap-2">
-                        DASHBOARD CẢNH BÁO NÚT THẮT TIMELINE & TIẾN ĐỘ KPI THEO ĐỐI TÁC
+                        DASHBOARD ĐIỀU HÀNH CON SỐ HỢP ĐỒNG, SỐ CT & BÁM SÁT 6 KPI THEO ĐỐI TÁC
                     </h1>
                     <p class="text-slate-500 text-xs md:text-sm mt-0.5 flex items-center gap-2">
-                        Kiểm soát luồng: <span class="font-bold text-slate-800">Thi công xong</span> ➔ <span class="font-bold text-amber-700">Lập BBNT</span> ➔ <span class="font-bold text-blue-700">Trả BBNT về Ban</span> ➔ <span class="font-bold text-purple-700">Nghiệm Thu SAP</span> ➔ <span class="font-bold text-emerald-700">Đóng KPI VTA</span>
+                        Tổng hợp theo Hợp đồng & Nhà thầu | Thể hiện rõ từng con số KPI & Công nợ VTA (Không tràn làn mã CT)
                     </p>
                 </div>
             </div>
@@ -87,11 +86,11 @@
             </div>
         </div>
 
-        <!-- FAST PARTNER SELECTOR BAR ("SOI CHI TIẾT THEO ĐỐI TÁC") -->
+        <!-- FAST PARTNER SELECTOR BAR ("KHOANH VÙNG ĐIỀU HÀNH THEO ĐỐI TÁC") -->
         <div class="bg-white p-4 rounded-2xl card-shadow border border-slate-200 space-y-2">
             <div class="flex justify-between items-center">
                 <span class="text-xs font-black text-slate-900 uppercase tracking-wide flex items-center gap-2">
-                    <i class="fa-solid fa-handshake text-viettel-red"></i> SOI CHI TIẾT THEO TỪNG ĐỐI TÁC THI CÔNG (CLICK ĐỂ SOI NHANH BOTTLENECK)
+                    <i class="fa-solid fa-handshake text-viettel-red"></i> KHOANH VÙNG ĐIỀU HÀNH TỪNG ĐỐI TÁC LỚN (CLICK ĐỂ LỌC TOÀN BỘ CON SỐ)
                 </span>
                 <span class="text-[11px] text-slate-500 font-bold" id="selectedPartnerLabel">Đang xem: Tất cả nhà thầu</span>
             </div>
@@ -100,158 +99,211 @@
             </div>
         </div>
 
-        <!-- 4 EXTREME WARNING BOTTLENECK CARDS ("CẢNH BÁO CỰC MẠNH") -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Alert 1: Tắc Lập BBNT -->
-            <div onclick="filterByStage('1_TAC_LAP_BBNT')" class="cursor-pointer bg-red-50/90 p-4 rounded-2xl card-shadow border-2 border-red-500 hover:shadow-lg transition relative overflow-hidden">
-                <div class="absolute -right-3 -top-3 w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-file-circle-xmark text-red-600 text-xl"></i>
+        <!-- TOP METRIC CARDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <!-- Card 1: Tổng Số HĐ & CT -->
+            <div onclick="quickFilter('ALL')" class="cursor-pointer bg-white p-4 rounded-2xl card-shadow border-l-4 border-slate-700 hover:shadow-md transition">
+                <span class="text-[11px] font-bold text-slate-500 uppercase">Tổng Hợp Đồng (HĐ)</span>
+                <div class="text-xl lg:text-2xl font-black text-slate-800 mt-1" id="kpiTotalHD">652 HĐ</div>
+                <div class="text-[11px] font-semibold text-slate-500 mt-2 pt-2 border-t border-slate-100 flex justify-between">
+                    <span>Tổng số CT:</span>
+                    <span class="text-slate-900 font-extrabold" id="kpiTotalCT">12.836 CT</span>
                 </div>
-                <span class="text-[11px] font-black text-red-900 uppercase tracking-wider block">🚨 TẮC 1: THI CÔNG XONG CHƯA CÓ BBNT</span>
-                <div class="text-2xl lg:text-3xl font-black text-red-600 mt-1" id="cardTacLapBBNT">2.430 CT</div>
-                <p class="text-[11px] font-semibold text-red-800 mt-2 pt-2 border-t border-red-200 flex justify-between items-center">
-                    <span>Nhà thầu chưa nộp BBNT</span>
-                    <span class="font-extrabold underline">Soi lỗi ➔</span>
-                </p>
             </div>
 
-            <!-- Alert 2: Tắc Trả BBNT về Ban -->
-            <div onclick="filterByStage('2_TAC_TRA_BBNT')" class="cursor-pointer bg-amber-50/90 p-4 rounded-2xl card-shadow border-2 border-amber-500 hover:shadow-lg transition relative overflow-hidden">
-                <div class="absolute -right-3 -top-3 w-12 h-12 bg-amber-500/10 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-stamp text-amber-600 text-xl"></i>
+            <!-- Card 2: 🔥 CẢNH BÁO CÔNG NỢ VTA NGUỒN ĐẦU TƯ -->
+            <div onclick="quickFilter('VTA_DAUTU')" class="cursor-pointer bg-amber-50/80 p-4 rounded-2xl card-shadow border-2 border-amber-500 hover:shadow-md transition">
+                <span class="text-[11px] font-black text-amber-900 uppercase">🔥 TỒN CÔNG NỢ VTA (ĐẦU TƯ)</span>
+                <div class="text-xl lg:text-2xl font-black text-amber-700 mt-1" id="kpiVtaSum">563.74 Tỷ</div>
+                <div class="text-[11px] font-bold text-amber-900 mt-2 pt-2 border-t border-amber-200 flex justify-between">
+                    <span>Số CT tồn Công nợ VTA:</span>
+                    <span class="font-extrabold text-amber-900" id="kpiVtaCount">9.916 CT</span>
                 </div>
-                <span class="text-[11px] font-black text-amber-900 uppercase tracking-wider block">🚨 TẮC 2: CHƯA BÀN GIAO BBNT ĐỦ DẤU</span>
-                <div class="text-2xl lg:text-3xl font-black text-amber-700 mt-1" id="cardTacTraBBNT">2.468 CT</div>
-                <p class="text-[11px] font-semibold text-amber-900 mt-2 pt-2 border-t border-amber-200 flex justify-between items-center">
-                    <span>Đã nghiệm thu hiện trường nhưng thiếu dấu</span>
-                    <span class="font-extrabold underline">Soi lỗi ➔</span>
-                </p>
             </div>
 
-            <!-- Alert 3: Tắc Nhập SAP -->
-            <div onclick="filterByStage('3_TAC_NT_SAP')" class="cursor-pointer bg-blue-50/90 p-4 rounded-2xl card-shadow border-2 border-blue-500 hover:shadow-lg transition relative overflow-hidden">
-                <div class="absolute -right-3 -top-3 w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-laptop-code text-blue-600 text-xl"></i>
+            <!-- Card 3: HĐ Nguồn Đầu Tư -->
+            <div onclick="quickFilter('DAU_TU')" class="cursor-pointer bg-white p-4 rounded-2xl card-shadow border-l-4 border-blue-600 hover:shadow-md transition">
+                <span class="text-[11px] font-bold text-slate-500 uppercase">HĐ Nguồn Đầu Tư</span>
+                <div class="text-xl lg:text-2xl font-black text-blue-600 mt-1" id="kpiDauTuHD">153 HĐ</div>
+                <div class="text-[11px] font-semibold text-blue-700 mt-2 pt-2 border-t border-slate-100 flex justify-between">
+                    <span>Số CT Nguồn Đầu Tư:</span>
+                    <span class="font-extrabold text-blue-900" id="kpiDauTuCT">10.510 CT</span>
                 </div>
-                <span class="text-[11px] font-black text-blue-900 uppercase tracking-wider block">🚨 TẮC 3: BBNT ĐÃ VỀ NHƯNG CHƯA SAP</span>
-                <div class="text-2xl lg:text-3xl font-black text-blue-700 mt-1" id="cardTacNTSAP">1.460 CT</div>
-                <p class="text-[11px] font-semibold text-blue-900 mt-2 pt-2 border-t border-blue-200 flex justify-between items-center">
-                    <span>Đã giao Ban ĐB nhưng BQLDA chưa nhập SAP</span>
-                    <span class="font-extrabold underline">Soi lỗi ➔</span>
-                </p>
             </div>
 
-            <!-- Alert 4: Tắc Tồn Công Nợ VTA -->
-            <div onclick="filterByStage('4_TAC_VTA')" class="cursor-pointer bg-purple-50/90 p-4 rounded-2xl card-shadow border-2 border-purple-500 hover:shadow-lg transition relative overflow-hidden">
-                <div class="absolute -right-3 -top-3 w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-boxes-packing text-purple-600 text-xl"></i>
+            <!-- Card 4: HĐ Nguồn Chi Phí -->
+            <div onclick="quickFilter('CHI_PHI')" class="cursor-pointer bg-white p-4 rounded-2xl card-shadow border-l-4 border-purple-600 hover:shadow-md transition">
+                <span class="text-[11px] font-bold text-slate-500 uppercase">HĐ Nguồn Chi Phí</span>
+                <div class="text-xl lg:text-2xl font-black text-purple-600 mt-1" id="kpiChiPhiHD">499 HĐ</div>
+                <div class="text-[11px] font-semibold text-purple-700 mt-2 pt-2 border-t border-slate-100 flex justify-between">
+                    <span>Gồm 2.326 CT | Giá trị:</span>
+                    <span class="font-extrabold text-purple-900" id="kpiChiPhiVal">64.73 Tỷ</span>
                 </div>
-                <span class="text-[11px] font-black text-purple-900 uppercase tracking-wider block">🚨 TẮC 4: ĐÃ SAP NHƯNG CHƯA GIẢI TỎA VTA</span>
-                <div class="text-2xl lg:text-3xl font-black text-purple-700 mt-1" id="cardTacVTA">381 CT</div>
-                <p class="text-[11px] font-semibold text-purple-900 mt-2 pt-2 border-t border-purple-200 flex justify-between items-center">
-                    <span>Tồn VTA còn "CÓ" | Tồn: <span id="cardVtaDebtVal" class="font-black text-purple-900">563.74 Tỷ</span></span>
-                    <span class="font-extrabold underline">Soi lỗi ➔</span>
-                </p>
+            </div>
+
+            <!-- Card 5: 🔥 CẢNH BÁO HĐ CHI PHÍ TRƯỚC 2025 -->
+            <div onclick="quickFilter('PRE2025')" class="cursor-pointer bg-viettel-lightred p-4 rounded-2xl card-shadow border-2 border-viettel-red hover:shadow-md transition">
+                <span class="text-[11px] font-black text-viettel-red uppercase">🔥 HĐ CHI PHÍ < 2025</span>
+                <div class="text-xl lg:text-2xl font-black text-viettel-red mt-1" id="kpiPre2025HD">78 HĐ</div>
+                <div class="text-[11px] font-bold text-viettel-darkred mt-2 pt-2 border-t border-red-200 flex justify-between">
+                    <span>Gồm 582 CT | Tồn đọng:</span>
+                    <span class="font-black text-viettel-red text-sm" id="kpiPre2025Val">14.78 Tỷ</span>
+                </div>
             </div>
         </div>
 
-        <!-- INTERACTIVE WORKFLOW TIMELINE PIPELINE FUNNEL -->
-        <div class="bg-white p-5 rounded-2xl card-shadow border border-slate-200 space-y-4">
+        <!-- KPI SUMMARY MATRIX PANEL (CON SỐ RÕ RÀNG TỪNG KPI) -->
+        <div class="bg-white p-5 rounded-2xl card-shadow border border-slate-200 space-y-3">
             <div class="flex justify-between items-center pb-2 border-b border-slate-100">
                 <div>
                     <h2 class="text-sm font-black text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                        <i class="fa-solid fa-diagram-project text-viettel-red"></i>
-                        MA TRẬN QUY TRÌNH TIMELINE THI CÔNG ➔ BBNT ➔ SAP ➔ ĐÓNG KPI VTA
+                        <i class="fa-solid fa-list-check text-viettel-red"></i>
+                        BẢNG TỔNG HỢP TOÀN BỘ CON SỐ 6 CHỈ TIÊU KPI THỜI GIAN (GIAO CT vs ĐẠT CT vs VƯỚNG CT)
                     </h2>
-                    <p class="text-xs text-slate-500">Click vào bất kỳ ô bước nào bên dưới để lọc danh sách công trình bị ách tắc đúng bước đó</p>
+                    <p class="text-xs text-slate-500">Giao KH KPI = 1 | <span class="font-bold text-emerald-600">KPI Đạt = Tồn VTA hiện "KHÔNG"</span> | <span class="font-bold text-rose-600">Chưa đạt = Tồn VTA còn "CÓ"</span></p>
                 </div>
-                <button onclick="filterByStage('ALL')" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-lg transition border border-slate-300">
-                    <i class="fa-solid fa-filter-circle-xmark"></i> Bỏ Lọc Timeline
-                </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-6 gap-2 text-center text-xs">
-                <!-- Step 0: Đang thi công -->
-                <div onclick="filterByStage('0_DANG_THI_CONG')" class="cursor-pointer p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 transition">
-                    <span class="block font-extrabold text-slate-700">1. Đang Thi Công</span>
-                    <span class="text-[10px] text-slate-400 block mb-1">(Chưa thi công xong)</span>
-                    <div class="text-slate-800 font-black text-base mt-1" id="funnelStep0">4.290 CT</div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs">
+                <!-- KH VTT -->
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block font-bold text-slate-800">1. KH VTT</span>
+                    <span class="text-[10px] text-slate-500 block mb-1">(Chấm điểm GĐ)</span>
+                    <div class="text-slate-600 font-semibold mb-1" id="kpiSummary_khvtt_assigned">KH Giao: 0 CT</div>
+                    <div class="text-emerald-700 font-extrabold" id="kpiSummary_khvtt_pass">✓ Đạt: 0 CT</div>
+                    <div class="text-rose-600 font-black text-[11px]" id="kpiSummary_khvtt_fail">✗ Vướng: 0 CT</div>
                 </div>
 
-                <!-- Step 1: Tắc Lập BBNT -->
-                <div onclick="filterByStage('1_TAC_LAP_BBNT')" class="cursor-pointer p-3 bg-red-50 hover:bg-red-100 rounded-xl border-2 border-red-300 transition">
-                    <span class="block font-black text-red-900">2. Tắc Lập BBNT</span>
-                    <span class="text-[10px] text-red-600 block mb-1">(TC xong chưa nộp BBNT)</span>
-                    <div class="text-red-700 font-black text-base mt-1" id="funnelStep1">2.430 CT</div>
+                <!-- NT BQLDA -->
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block font-bold text-slate-800">2. NT (BQLDA)</span>
+                    <span class="text-[10px] text-slate-500 block mb-1">(DS Tồn "không")</span>
+                    <div class="text-slate-600 font-semibold mb-1" id="kpiSummary_ntbqlda_assigned">KH Giao: 0 CT</div>
+                    <div class="text-emerald-700 font-extrabold" id="kpiSummary_ntbqlda_pass">✓ Đạt: 0 CT</div>
+                    <div class="text-rose-600 font-black text-[11px]" id="kpiSummary_ntbqlda_fail">✗ Vướng: 0 CT</div>
                 </div>
 
-                <!-- Step 2: Tắc Trả BBNT -->
-                <div onclick="filterByStage('2_TAC_TRA_BBNT')" class="cursor-pointer p-3 bg-amber-50 hover:bg-amber-100 rounded-xl border-2 border-amber-300 transition">
-                    <span class="block font-black text-amber-900">3. Tắc Trả BBNT</span>
-                    <span class="text-[10px] text-amber-700 block mb-1">(Chưa giao đủ dấu về Ban)</span>
-                    <div class="text-amber-800 font-black text-base mt-1" id="funnelStep2">2.468 CT</div>
+                <!-- BGTS BQLDA -->
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block font-bold text-slate-800">3. BGTS (BQLDA)</span>
+                    <span class="text-[10px] text-slate-500 block mb-1">(DS Tồn "không")</span>
+                    <div class="text-slate-600 font-semibold mb-1" id="kpiSummary_bgtsbqlda_assigned">KH Giao: 0 CT</div>
+                    <div class="text-emerald-700 font-extrabold" id="kpiSummary_bgtsbqlda_pass">✓ Đạt: 0 CT</div>
+                    <div class="text-rose-600 font-black text-[11px]" id="kpiSummary_bgtsbqlda_fail">✗ Vướng: 0 CT</div>
                 </div>
 
-                <!-- Step 3: Tắc Nhập SAP -->
-                <div onclick="filterByStage('3_TAC_NT_SAP')" class="cursor-pointer p-3 bg-blue-50 hover:bg-blue-100 rounded-xl border-2 border-blue-300 transition">
-                    <span class="block font-black text-blue-900">4. Tắc Nhập SAP</span>
-                    <span class="text-[10px] text-blue-700 block mb-1">(Đã về Ban chưa nhập SAP)</span>
-                    <div class="text-blue-800 font-black text-base mt-1" id="funnelStep3">1.460 CT</div>
+                <!-- Nghiệm Thu SAP -->
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block font-bold text-slate-800">4. Nghiệm Thu SAP</span>
+                    <span class="text-[10px] text-slate-500 block mb-1">(Nghiệm thu SAP)</span>
+                    <div class="text-slate-600 font-semibold mb-1" id="kpiSummary_ntsap_assigned">KH Giao: 0 CT</div>
+                    <div class="text-emerald-700 font-extrabold" id="kpiSummary_ntsap_pass">✓ Đạt: 0 CT</div>
+                    <div class="text-rose-600 font-black text-[11px]" id="kpiSummary_ntsap_fail">✗ Vướng: 0 CT</div>
                 </div>
 
-                <!-- Step 4: Tắc Tồn VTA -->
-                <div onclick="filterByStage('4_TAC_VTA')" class="cursor-pointer p-3 bg-purple-50 hover:bg-purple-100 rounded-xl border-2 border-purple-300 transition">
-                    <span class="block font-black text-purple-900">5. Tắc Tồn VTA</span>
-                    <span class="text-[10px] text-purple-700 block mb-1">(Đã SAP chưa giải tỏa VTA)</span>
-                    <div class="text-purple-800 font-black text-base mt-1" id="funnelStep4">381 CT</div>
+                <!-- BGTS SAP -->
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block font-bold text-slate-800">5. BGTS SAP</span>
+                    <span class="text-[10px] text-slate-500 block mb-1">(Bàn giao tài sản)</span>
+                    <div class="text-slate-600 font-semibold mb-1" id="kpiSummary_bgtssap_assigned">KH Giao: 0 CT</div>
+                    <div class="text-emerald-700 font-extrabold" id="kpiSummary_bgtssap_pass">✓ Đạt: 0 CT</div>
+                    <div class="text-rose-600 font-black text-[11px]" id="kpiSummary_bgtssap_fail">✗ Vướng: 0 CT</div>
                 </div>
 
-                <!-- Step 5: Hoàn Thành -->
-                <div onclick="filterByStage('5_HOAN_THANH')" class="cursor-pointer p-3 bg-emerald-50 hover:bg-emerald-100 rounded-xl border-2 border-emerald-400 transition">
-                    <span class="block font-black text-emerald-900">6. Hoàn Thành KPI</span>
-                    <span class="text-[10px] text-emerald-700 block mb-1">(VTA = "KHÔNG")</span>
-                    <div class="text-emerald-800 font-black text-base mt-1" id="funnelStep5">1.806 CT</div>
+                <!-- VHKT -->
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block font-bold text-slate-800">6. VHKT</span>
+                    <span class="text-[10px] text-slate-500 block mb-1">(Hangbt)</span>
+                    <div class="text-slate-600 font-semibold mb-1" id="kpiSummary_vhkt_assigned">KH Giao: 0 CT</div>
+                    <div class="text-emerald-700 font-extrabold" id="kpiSummary_vhkt_pass">✓ Đạt: 0 CT</div>
+                    <div class="text-rose-600 font-black text-[11px]" id="kpiSummary_vhkt_fail">✗ Vướng: 0 CT</div>
                 </div>
             </div>
         </div>
 
-        <!-- PARTNER BOTTLENECK DIAGNOSIS MATRIX TABLE ("SOI CHI TIẾT NÚT THẮT THEO ĐỐI TÁC") -->
+        <!-- EXECUTIVE PARTNER KPI CONTROL TABLE (TABLE 1: CON SỐ TỪNG KPI THEO ĐỐI TÁC) -->
         <div class="bg-white p-6 rounded-2xl card-shadow border-t-4 border-viettel-red mb-8">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 pb-3 border-b border-gray-100">
                 <div>
                     <h3 class="text-base font-extrabold text-slate-800 uppercase tracking-wide flex items-center gap-2">
                         <i class="fas fa-crosshairs text-viettel-red"></i>
-                        BẢNG MA TRẬN PHÂN TÍCH NÚT THẮT CHẬM KPI THEO TỪNG ĐỐI TÁC
+                        BẢNG KHOANH VÙNG ĐIỀU HÀNH KPI THEO TỪNG ĐỐI TÁC (TÁCH BIỆT 6 CỘT KPI)
                     </h3>
                     <p class="text-xs text-slate-500 mt-1">
-                        Soi chi tiết từng Nhà thầu/Đối tác đang bị nghẽn ở bước nào trên quy trình (Lập BBNT, Trả BBNT, Nhập SAP hay Giải tỏa VTA).
+                        Theo dõi chi tiết Số HĐ, Tổng CT, CT Tồn VTA, Tiền VTA và Tỷ lệ Đạt/Giao từng chỉ số KPI theo Nhà thầu (Click vào dòng để lọc toàn bộ).
                     </p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <input type="text" id="partnerMatrixSearch" onkeyup="filterPartnerMatrixTable()" placeholder="🔍 Tìm tên đối tác..." class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs w-64 focus:outline-none focus:border-viettel-red transition">
-                    <span class="text-xs bg-red-50 text-viettel-red font-bold px-3 py-1.5 rounded-lg border border-red-100" id="partnerCountBadge">0 Đối Tác</span>
+                    <input type="text" id="kpiPartnerSearch" onkeyup="filterKpiPartnerTable()" placeholder="🔍 Tìm tên nhà thầu..." class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs w-64 focus:outline-none focus:border-viettel-red transition">
+                    <span class="text-xs bg-red-50 text-viettel-red font-bold px-3 py-1.5 rounded-lg border border-red-100" id="kpiPartnerCountBadge">0 Đối Tác</span>
                 </div>
             </div>
             
-            <div class="overflow-x-auto max-h-[420px] custom-scrollbar">
+            <div class="overflow-x-auto max-h-[450px] custom-scrollbar">
+                <table class="w-full text-xs text-left text-slate-700">
+                    <thead class="text-xs uppercase bg-slate-100 text-slate-700 sticky top-0 font-bold z-10">
+                        <tr class="bg-slate-200 text-slate-800 font-extrabold border-b border-slate-300">
+                            <th class="px-2 py-2.5 text-center border-r border-slate-300" rowspan="2">STT</th>
+                            <th class="px-3 py-2.5 text-left border-r border-slate-300" rowspan="2">Nhà Thầu / Đối Tác</th>
+                            <th class="px-2 py-2.5 text-center border-r border-slate-300" rowspan="2">Số HĐ</th>
+                            <th class="px-2 py-2.5 text-center border-r border-slate-300" rowspan="2">Tổng CT</th>
+                            <th class="px-2 py-2.5 text-center text-red-600 border-r border-slate-300" rowspan="2">CT Tồn VTA</th>
+                            <th class="px-3 py-2.5 text-right text-red-600 border-r border-slate-300" rowspan="2">Tiền VTA (Tỷ)</th>
+                            <th class="px-2 py-1.5 text-center bg-red-100 text-viettel-red border-r border-slate-300" colspan="6">
+                                CHI TIẾT CON SỐ TỪNG KPI (SỐ CT ĐẠT / SỐ CT GIAO)
+                            </th>
+                            <th class="px-3 py-2.5 text-center" rowspan="2">TỔNG % ĐẠT KPI</th>
+                        </tr>
+                        <tr class="bg-slate-100 text-slate-700 text-[10px] font-bold">
+                            <th class="px-2 py-1 text-center border-r border-slate-200">1. KHVTT</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">2. NT BQLDA</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">3. BGTS BQLDA</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">4. NT SAP</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">5. BGTS SAP</th>
+                            <th class="px-2 py-1 text-center border-r border-slate-200">6. VHKT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contractorKpiTbody" class="divide-y divide-gray-100">
+                        <!-- Dynamic rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEPTEMBER PLAN (COL J) DETAILED CONTRACTOR ANALYSIS TABLE (TABLE 2) -->
+        <div class="bg-white p-6 rounded-2xl card-shadow border-t-4 border-viettel-red mb-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 pb-3 border-b border-gray-100">
+                <div>
+                    <h3 class="text-base font-extrabold text-slate-800 uppercase tracking-wide flex items-center gap-2">
+                        <i class="fas fa-calendar-check text-viettel-red"></i>
+                        BẢNG PHÂN TÍCH CON SỐ KẾ HOẠCH THÁNG 9 THEO NHÀ THẦU
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">
+                        Chi tiết Số HĐ, Số CT, Công nợ VTA, Tồn VTTB, Đã Thu Hồi và Vật tư Cần Nhập Kho (VTA Nghiệm thu > 0 & Tồn VTA = "Có").
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="text" id="khT9Search" onkeyup="filterKhT9Table()" placeholder="🔍 Tìm nhà thầu KH T9..." class="px-3 py-1.5 border border-slate-200 rounded-lg text-xs w-64 focus:outline-none focus:border-viettel-red transition">
+                    <span class="text-xs bg-red-50 text-viettel-red font-bold px-3 py-1.5 rounded-lg border border-red-100" id="khT9Badge">0 Nhà Thầu KH T9</span>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto max-h-96 custom-scrollbar">
                 <table class="w-full text-xs text-left text-slate-700">
                     <thead class="text-xs uppercase bg-slate-900 text-white sticky top-0 font-bold z-10">
                         <tr>
                             <th class="px-2 py-3 text-center">STT</th>
-                            <th class="px-3 py-3">Nhà Thầu / Đối Tác</th>
-                            <th class="px-2 py-3 text-center">Số HĐ</th>
-                            <th class="px-2 py-3 text-center">Tổng CT</th>
-                            <th class="px-2 py-3 text-center bg-red-950 text-red-300">🔴 Tắc BBNT</th>
-                            <th class="px-2 py-3 text-center bg-amber-950 text-amber-300">🟡 Tắc Trả BBNT</th>
-                            <th class="px-2 py-3 text-center bg-blue-950 text-blue-300">🟠 Tắc SAP</th>
-                            <th class="px-2 py-3 text-center bg-purple-950 text-purple-300">🔵 Tắc VTA</th>
-                            <th class="px-2 py-3 text-center bg-emerald-950 text-emerald-300">🟢 Hoàn Thành</th>
-                            <th class="px-3 py-3 text-right text-amber-300">Nợ VTA (Tỷ)</th>
-                            <th class="px-3 py-3 text-center">Cảnh Báo</th>
-                            <th class="px-3 py-3 text-center">Thao Tác</th>
+                            <th class="px-4 py-3">Nhà Thầu / Đơn Vị Thi Công</th>
+                            <th class="px-2 py-3 text-center">Số HĐ KH T9</th>
+                            <th class="px-3 py-3 text-center text-red-300">Số CT KH T9</th>
+                            <th class="px-3 py-3 text-right text-red-300">Công Nợ VTA (Tỷ)</th>
+                            <th class="px-3 py-3 text-right">Tồn VTTB (Tỷ)</th>
+                            <th class="px-3 py-3 text-right text-emerald-300">Đã Thu Hồi (Tỷ)</th>
+                            <th class="px-3 py-3 text-right text-amber-300">Cần Nhập Kho (Tỷ)</th>
+                            <th class="px-3 py-3 text-center">% Giải Tỏa VTA</th>
                         </tr>
                     </thead>
-                    <tbody id="partnerMatrixTbody" class="divide-y divide-gray-100">
+                    <tbody id="khT9Tbody" class="divide-y divide-gray-100">
                         <!-- Dynamic rows -->
                     </tbody>
                 </table>
@@ -264,9 +316,9 @@
             <div class="bg-white p-5 rounded-2xl card-shadow border border-slate-200">
                 <h3 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
                     <i class="fa-solid fa-chart-column text-viettel-red"></i>
-                    PHÂN BỔ NÚT THẮT TIMELINE CHẬM KPI THEO TOP NHÀ THẦU LỚN NHẤT
+                    SỐ LƯỢNG CÔNG TRÌNH VƯỚNG KPI THEO TOP NHÀ THẦU LỚN NHẤT
                 </h3>
-                <div style="height: 320px; min-height: 320px; width: 100%; position: relative;" class="h-80 relative flex items-center justify-center">
+                <div style="height: 300px; min-height: 300px; width: 100%; position: relative;" class="h-72 relative flex items-center justify-center">
                     <canvas id="chartPartnerBottlenecks" style="display: block; width: 100%; height: 100%;"></canvas>
                 </div>
             </div>
@@ -277,7 +329,7 @@
                     <i class="fa-solid fa-pie-chart text-viettel-red"></i>
                     TỶ TRỌNG CÔNG NỢ VTA NGUỒN ĐẦU TƯ TẬP TRUNG THEO NHÀ THẦU
                 </h3>
-                <div style="height: 320px; min-height: 320px; width: 100%; position: relative;" class="h-80 relative flex items-center justify-center">
+                <div style="height: 300px; min-height: 300px; width: 100%; position: relative;" class="h-72 relative flex items-center justify-center">
                     <canvas id="chartVtaContractorShare" style="display: block; width: 100%; height: 100%;"></canvas>
                 </div>
             </div>
@@ -298,14 +350,12 @@
 
                 <!-- Slicer 2: Mức Cảnh Báo -->
                 <div>
-                    <label class="block text-[11px] font-bold text-viettel-red mb-1">🔥 Lọc Cảnh Báo Timeline & Rủi Ro</label>
+                    <label class="block text-[11px] font-bold text-viettel-red mb-1">🔥 Lọc Cảnh Báo Rủi Ro</label>
                     <select id="slicerAlert" onchange="applyFilters()" class="w-full bg-red-50 border border-red-300 text-viettel-darkred text-xs rounded-xl p-2 font-bold">
                         <option value="ALL">-- Tất cả mức cảnh báo --</option>
-                        <option value="STAGE_1">🔴 TẮC: Thi công xong chưa có BBNT</option>
-                        <option value="STAGE_2">🟡 TẮC: Chưa bàn giao BBNT đủ dấu</option>
-                        <option value="STAGE_3">🟠 TẮC: Đã bàn giao BBNT chưa nhập SAP</option>
-                        <option value="STAGE_4">🔵 TẮC: Đã SAP chưa giải tỏa VTA</option>
+                        <option value="VTA_DAUTU">🔥 CHỈ XEM: HĐ Tồn Công Nợ VTA (Đầu Tư)</option>
                         <option value="PRE2025">🔥 CHỈ XEM: HĐ Chi Phí trước 2025 (< 2025)</option>
+                        <option value="CHIPHI_NEW">⚠️ HĐ Chi Phí mới (2025-2026)</option>
                     </select>
                 </div>
 
@@ -327,15 +377,15 @@
             </div>
         </div>
 
-        <!-- MAIN TABLE OF CONTRACTS -->
+        <!-- MAIN CONTRACT TABLE (TABLE 3: BẢNG THEO HỢP ĐỒNG - SỐ CT - CÔNG NỢ VTA - ĐÁNH GIÁ KPI) -->
         <div class="bg-white p-5 rounded-2xl card-shadow border border-slate-200">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
                 <div>
                     <h3 class="text-sm font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-folder-tree text-viettel-red"></i>
-                        DANH SÁCH HỢP ĐỒNG, ĐÁNH GIÁ NÚT THẮT TIMELINE & KPI
+                        BẢNG CHI TIẾT THEO HỢP ĐỒNG BẢN CỨNG - SỐ CT - CÔNG NỢ VTA & KPI
                     </h3>
-                    <p class="text-xs text-slate-500">Tự động gom nhóm các công trình theo Hợp đồng bản cứng, hiển thị vị trí ách tắc chính và tiến độ KPI</p>
+                    <p class="text-xs text-slate-500">Hiển thị rõ từng con số Hợp đồng, Số lượng CT, Giá trị Công nợ VTA và Tiến độ hoàn thành 6 KPI</p>
                 </div>
 
                 <div class="flex items-center gap-2">
@@ -350,14 +400,14 @@
                 <table class="w-full text-xs text-left text-slate-600">
                     <thead>
                         <tr class="text-[11px] uppercase font-black text-center tracking-wider border-b border-slate-300 bg-slate-100 text-slate-800">
-                            <th class="p-3 border-r">Số Hợp Đồng Bản Cứng</th>
+                            <th class="p-3 border-r text-left">Số Hợp Đồng Bản Cứng</th>
                             <th class="p-3 border-r bg-blue-100 text-blue-900">Số CT</th>
                             <th class="p-3 border-r">Nguồn Vốn</th>
                             <th class="p-3 border-r text-center">Năm Ký</th>
-                            <th class="p-3 border-r">Nhà Thầu / Đối Tác</th>
-                            <th class="p-3 border-r text-right bg-amber-100 text-amber-900">Công Nợ VTA (VNĐ)</th>
-                            <th class="p-3 border-r text-center bg-red-50 text-viettel-darkred">Vị Trí Ách Tắc Chính</th>
-                            <th class="p-3 text-center">Soi Chi Tiết CT & Timeline</th>
+                            <th class="p-3 border-r text-left">Nhà Thầu / Đối Tác</th>
+                            <th class="p-3 border-r text-right bg-amber-100 text-amber-900">Công Nợ VTA (Triệu)</th>
+                            <th class="p-3 border-r text-center bg-red-50 text-viettel-darkred">Đánh Giá Tình Trạng KPI</th>
+                            <th class="p-3 text-center">Tổng Hợp KPI HĐ</th>
                         </tr>
                     </thead>
                     <tbody id="hdTableBody" class="divide-y divide-slate-200 bg-white">
@@ -369,48 +419,104 @@
 
     </div>
 
-    <!-- MODAL POPUP FOR DETAILED CONTRACT PROJECTS & TIMELINE PROGRESS -->
+    <!-- MODAL POPUP: CHI TIẾT TỔNG HỢP KPI THEO HỢP ĐỒNG (THỂ HIỆN RÕ TỪNG CON SỐ KPI, KHÔNG TRÀN LÀM MÃ CT) -->
     <div id="ctModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white max-w-6xl w-full rounded-2xl p-6 card-shadow border border-slate-200 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div class="bg-white max-w-5xl w-full rounded-2xl p-6 card-shadow border border-slate-200 space-y-5 max-h-[90vh] overflow-y-auto">
+            <!-- Modal Header -->
             <div class="flex justify-between items-start border-b border-slate-100 pb-3">
                 <div>
                     <span class="px-2.5 py-0.5 bg-purple-100 text-purple-800 text-[11px] font-bold rounded-lg" id="modalNguonVon">Nguồn Chi Phí</span>
-                    <h2 class="text-lg font-black text-slate-900 mt-1" id="modalSoHD">Số HĐ: 150601-HT/HCM</h2>
-                    <p class="text-xs text-slate-500" id="modalSubInfo">Nhà thầu: Công ty ABC | Gồm 55 Công Trình</p>
+                    <h2 class="text-xl font-black text-slate-900 mt-1" id="modalSoHD">Số HĐ: 150601-HT/HCM</h2>
+                    <p class="text-xs text-slate-500 mt-0.5" id="modalSubInfo">Nhà thầu: Công ty ABC | Gồm 55 Công Trình | Tồn Công Nợ VTA: 1.500 triệu VNĐ</p>
                 </div>
                 <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
-            <div>
-                <h3 class="text-xs font-black uppercase text-slate-800 mb-2 flex items-center gap-1.5">
-                    <i class="fa-solid fa-timeline text-viettel-red"></i>
-                    CHI TIẾT TIẾN ĐỘ TIMELINE & BOTTLENECK TỪNG CÔNG TRÌNH (THI CÔNG ➔ BBNT ➔ SAP ➔ ĐÓNG KPI VTA)
+            <!-- Block 1: Executive KPI Metrics Table for this Contract -->
+            <div class="space-y-2">
+                <h3 class="text-xs font-black uppercase text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-chart-pie text-viettel-red"></i> 
+                    KHỐI 1: BẢNG TỔNG HỢP CON SỐ BÁM SÁT 6 CHỈ TIÊU KPI CỦA HỢP ĐỒNG
                 </h3>
-                <div class="overflow-x-auto rounded-xl border border-slate-200 max-h-96 custom-scrollbar">
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
                     <table class="w-full text-xs text-left text-slate-700">
-                        <thead class="sticky top-0 z-10 bg-slate-100">
-                            <tr class="bg-slate-100 font-bold border-b border-slate-200 text-center">
-                                <th class="p-2 border-r text-left">Mã CT</th>
-                                <th class="p-2 border-r text-left">Loại CT</th>
-                                <th class="p-2 border-r text-center">Tiến Độ Timeline</th>
-                                <th class="p-2 border-r text-center">Trạng Thái Nút Thắt</th>
-                                <th class="p-2 border-r text-right">Giá Trị VTA</th>
-                                <th class="p-1 border-r text-center">KH VTT</th>
-                                <th class="p-1 border-r text-center">NT BQLDA</th>
-                                <th class="p-1 border-r text-center">BGTS BQLDA</th>
-                                <th class="p-1 border-r text-center">NT SAP</th>
-                                <th class="p-1 border-r text-center">BGTS SAP</th>
-                                <th class="p-1 text-center">VHKT</th>
+                        <thead class="bg-slate-900 text-white uppercase text-[11px] font-bold">
+                            <tr>
+                                <th class="p-2.5">Chỉ Tiêu KPI</th>
+                                <th class="p-2.5 text-center">Số CT Giao KPI</th>
+                                <th class="p-2.5 text-center text-emerald-300">✓ Số CT Đạt KPI</th>
+                                <th class="p-2.5 text-center text-rose-300">✗ Số CT Vướng KPI</th>
+                                <th class="p-2.5 text-center">% Hoàn Thành</th>
                             </tr>
                         </thead>
-                        <tbody id="modalCtBody" class="divide-y divide-slate-100">
-                            <!-- Dynamic CT List -->
+                        <tbody id="modalKpiTbody" class="divide-y divide-slate-100 bg-white">
+                            <!-- Dynamic KPI Summary rows for this contract -->
                         </tbody>
                     </table>
                 </div>
             </div>
-            
-            <div class="flex justify-end pt-2 border-t border-slate-100">
+
+            <!-- Block 2: Timeline Stage Breakdown for this Contract -->
+            <div class="space-y-2 pt-2">
+                <h3 class="text-xs font-black uppercase text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-diagram-project text-viettel-red"></i> 
+                    KHỐI 2: BẢNG PHÂN TÍCH CON SỐ CÁC BƯỚC TIMELINE CỦA HỢP ĐỒNG
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center text-xs">
+                    <div class="p-3 bg-red-50 rounded-xl border border-red-200">
+                        <span class="block font-bold text-red-900 text-[11px]">🔴 Tắc Lập BBNT</span>
+                        <div class="text-lg font-black text-red-600 mt-1" id="modalSt1">0 CT</div>
+                        <span class="text-[10px] text-red-700 block">Thi công xong chưa BBNT</span>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span class="block font-bold text-amber-900 text-[11px]">🟡 Tắc Trả BBNT</span>
+                        <div class="text-lg font-black text-amber-700 mt-1" id="modalSt2">0 CT</div>
+                        <span class="text-[10px] text-amber-800 block">Chưa bàn giao đủ dấu</span>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                        <span class="block font-bold text-blue-900 text-[11px]">🟠 Tắc Nhập SAP</span>
+                        <div class="text-lg font-black text-blue-700 mt-1" id="modalSt3">0 CT</div>
+                        <span class="text-[10px] text-blue-800 block">Đã về Ban chưa lên SAP</span>
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded-xl border border-purple-200">
+                        <span class="block font-bold text-purple-900 text-[11px]">🔵 Tắc Tồn VTA</span>
+                        <div class="text-lg font-black text-purple-700 mt-1" id="modalSt4">0 CT</div>
+                        <span class="text-[10px] text-purple-800 block">Đã SAP chưa giải tỏa VTA</span>
+                    </div>
+                    <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-300">
+                        <span class="block font-bold text-emerald-900 text-[11px]">🟢 Hoàn Thành KPI</span>
+                        <div class="text-lg font-black text-emerald-700 mt-1" id="modalSt5">0 CT</div>
+                        <span class="text-[10px] text-emerald-800 block">VTA = "KHÔNG"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 3: Project Type Breakdown for this Contract -->
+            <div class="space-y-2 pt-2">
+                <h3 class="text-xs font-black uppercase text-slate-800 flex items-center gap-1.5">
+                    <i class="fa-solid fa-layer-group text-viettel-red"></i> 
+                    KHỐI 3: PHÂN BỔ CON SỐ THEO PHÂN LOẠI CÔNG TRÌNH TRONG HỢP ĐỒNG
+                </h3>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 max-h-48 custom-scrollbar">
+                    <table class="w-full text-xs text-left text-slate-700">
+                        <thead class="bg-slate-100 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="p-2 border-r">Hạng Mục / Loại CT</th>
+                                <th class="p-2 border-r text-center">Số CT</th>
+                                <th class="p-2 border-r text-right bg-amber-50">Giá Trị VTA (VNĐ)</th>
+                                <th class="p-2 border-r text-center bg-emerald-50 text-emerald-800">✓ Đạt KPI (VTA = KHÔNG)</th>
+                                <th class="p-2 text-center text-rose-800 bg-rose-50">✗ Vướng KPI (VTA = CÓ)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modalLoaiCtTbody" class="divide-y divide-slate-100 bg-white">
+                            <!-- Dynamic project type rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex justify-end pt-3 border-t border-slate-100">
                 <button onclick="closeModal()" class="px-5 py-2 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl shadow transition">
                     Đóng cửa sổ
                 </button>
@@ -455,7 +561,6 @@
         let fullHDList = storeData.hdList || [];
         let filteredHDList = [];
         let selectedPartnerFilter = 'ALL';
-        let selectedStageFilter = 'ALL';
 
         let chartPartnerBottlenecksObj = null;
         let chartVtaShareObj = null;
@@ -502,18 +607,11 @@
             const label = document.getElementById('selectedPartnerLabel');
             if (label) label.innerText = ntName === 'ALL' ? 'Đang xem: Tất cả nhà thầu' : `Đang xem: ${ntName}`;
 
-            // Highlight active pill
             document.querySelectorAll('.partner-pill').forEach(el => el.classList.remove('partner-badge-active'));
             const activeId = ntName === 'ALL' ? 'partnerPill_ALL' : 'partnerPill_' + encodeURIComponent(ntName).replace(/'/g, "%27");
             const activeEl = document.getElementById(activeId);
             if (activeEl) activeEl.classList.add('partner-badge-active');
 
-            applyFilters();
-        }
-
-        function filterByStage(stageCode) {
-            selectedStageFilter = stageCode;
-            document.getElementById('slicerAlert').value = stageCode.startsWith('STAGE_') ? stageCode : (stageCode === '1_TAC_LAP_BBNT' ? 'STAGE_1' : stageCode === '2_TAC_TRA_BBNT' ? 'STAGE_2' : stageCode === '3_TAC_NT_SAP' ? 'STAGE_3' : stageCode === '4_TAC_VTA' ? 'STAGE_4' : 'ALL');
             applyFilters();
         }
 
@@ -529,6 +627,26 @@
             banSet.sort().forEach(b => selectBan.innerHTML += `<option value="${b}">${b}</option>`);
         }
 
+        function quickFilter(type) {
+            if(type === 'ALL') {
+                document.getElementById('slicerNguonVon').value = 'ALL';
+                document.getElementById('slicerAlert').value = 'ALL';
+            } else if(type === 'VTA_DAUTU') {
+                document.getElementById('slicerNguonVon').value = 'ALL';
+                document.getElementById('slicerAlert').value = 'VTA_DAUTU';
+            } else if(type === 'DAU_TU') {
+                document.getElementById('slicerNguonVon').value = 'Nguồn Đầu Tư';
+                document.getElementById('slicerAlert').value = 'ALL';
+            } else if(type === 'CHI_PHI') {
+                document.getElementById('slicerNguonVon').value = 'Nguồn Chi Phí';
+                document.getElementById('slicerAlert').value = 'ALL';
+            } else if(type === 'PRE2025') {
+                document.getElementById('slicerNguonVon').value = 'ALL';
+                document.getElementById('slicerAlert').value = 'PRE2025';
+            }
+            applyFilters();
+        }
+
         function applyFilters() {
             const selNguon = document.getElementById('slicerNguonVon').value;
             const selAlert = document.getElementById('slicerAlert').value;
@@ -541,58 +659,102 @@
                 if (selBan !== 'ALL' && d.ban !== selBan) return false;
 
                 if (selAlert === 'PRE2025' && !d.isWarningPre2025) return false;
-                if (selAlert === 'STAGE_1' && (d.soCT_TacLapBBNT || 0) <= 0) return false;
-                if (selAlert === 'STAGE_2' && (d.soCT_TacTraBBNT || 0) <= 0) return false;
-                if (selAlert === 'STAGE_3' && (d.soCT_TacNTSAP || 0) <= 0) return false;
-                if (selAlert === 'STAGE_4' && (d.soCT_TacVTA || 0) <= 0) return false;
-
-                if (selectedStageFilter === '0_DANG_THI_CONG' && (d.soCT_DangTC || 0) <= 0) return false;
-                if (selectedStageFilter === '1_TAC_LAP_BBNT' && (d.soCT_TacLapBBNT || 0) <= 0) return false;
-                if (selectedStageFilter === '2_TAC_TRA_BBNT' && (d.soCT_TacTraBBNT || 0) <= 0) return false;
-                if (selectedStageFilter === '3_TAC_NT_SAP' && (d.soCT_TacNTSAP || 0) <= 0) return false;
-                if (selectedStageFilter === '4_TAC_VTA' && (d.soCT_TacVTA || 0) <= 0) return false;
-                if (selectedStageFilter === '5_HOAN_THANH' && (d.soCT_HoanThanh || 0) <= 0) return false;
+                if (selAlert === 'VTA_DAUTU' && (d.isChiPhi || d.tongCongNoVTA <= 0)) return false;
+                if (selAlert === 'CHIPHI_NEW' && (!d.isChiPhi || d.isWarningPre2025)) return false;
 
                 return true;
             });
 
-            updateBottleneckSummary();
-            renderPartnerMatrixTable(filteredHDList);
+            updateKPIs();
+            renderContractorKPITable(filteredHDList);
+            renderKhT9Table(filteredHDList);
             renderCharts();
             renderHDTable();
         }
 
-        function updateBottleneckSummary() {
-            let st0 = 0, st1 = 0, st2 = 0, st3 = 0, st4 = 0, st5 = 0;
-            let sumVtaDebt = 0;
+        function updateKPIs() {
+            const totalHD = filteredHDList.length;
+            const totalCT = filteredHDList.reduce((s, d) => s + d.soLuongCT, 0);
+
+            const vtaDauTuHDs = filteredHDList.filter(d => !d.isChiPhi && d.tongCongNoVTA > 0);
+            const vtaDauTuSum = vtaDauTuHDs.reduce((s, d) => s + d.tongCongNoVTA, 0);
+            const vtaDauTuCTCount = vtaDauTuHDs.reduce((s, d) => s + (d.soCT_CoCongNoVTA || d.soLuongCT || 0), 0);
+
+            const dauTuHD = filteredHDList.filter(d => !d.isChiPhi).length;
+            const dauTuCT = filteredHDList.filter(d => !d.isChiPhi).reduce((s, d) => s + d.soLuongCT, 0);
+
+            const chiPhiHD = filteredHDList.filter(d => d.isChiPhi).length;
+            const chiPhiVal = filteredHDList.filter(d => d.isChiPhi).reduce((s, d) => s + d.tongGiaTriTon, 0);
+
+            const pre2025HD = filteredHDList.filter(d => d.isWarningPre2025).length;
+            const pre2025Val = filteredHDList.filter(d => d.isWarningPre2025).reduce((s, d) => s + d.tongGiaTriTon, 0);
+
+            document.getElementById('kpiTotalHD').innerText = totalHD.toLocaleString() + ' HĐ';
+            document.getElementById('kpiTotalCT').innerText = totalCT.toLocaleString() + ' CT';
+
+            document.getElementById('kpiVtaSum').innerText = (vtaDauTuSum / 1000000000).toFixed(2) + ' Tỷ';
+            document.getElementById('kpiVtaCount').innerText = vtaDauTuCTCount.toLocaleString() + ' CT';
+
+            document.getElementById('kpiDauTuHD').innerText = dauTuHD.toLocaleString() + ' HĐ';
+            document.getElementById('kpiDauTuCT').innerText = dauTuCT.toLocaleString() + ' CT';
+
+            document.getElementById('kpiChiPhiHD').innerText = chiPhiHD.toLocaleString() + ' HĐ';
+            document.getElementById('kpiChiPhiVal').innerText = (chiPhiVal / 1000000000).toFixed(2) + ' Tỷ';
+
+            document.getElementById('kpiPre2025HD').innerText = pre2025HD.toLocaleString() + ' HĐ';
+            document.getElementById('kpiPre2025Val').innerText = (pre2025Val / 1000000000).toFixed(2) + ' Tỷ';
+
+            // Summary KPI panel (computed dynamically from filteredHDList)
+            let k_khvtt_a = 0, k_khvtt_p = 0;
+            let k_ntbq_a = 0, k_ntbq_p = 0;
+            let k_bgtsbq_a = 0, k_bgtsbq_p = 0;
+            let k_ntsap_a = 0, k_ntsap_p = 0;
+            let k_bgtssap_a = 0, k_bgtssap_p = 0;
+            let k_vhkt_a = 0, k_vhkt_p = 0;
 
             filteredHDList.forEach(d => {
-                st0 += (d.soCT_DangTC || 0);
-                st1 += (d.soCT_TacLapBBNT || 0);
-                st2 += (d.soCT_TacTraBBNT || 0);
-                st3 += (d.soCT_TacNTSAP || 0);
-                st4 += (d.soCT_TacVTA || 0);
-                st5 += (d.soCT_HoanThanh || 0);
-                sumVtaDebt += (d.tongCongNoVTA || 0);
+                k_khvtt_a += (d.kpiKHVTT_Assigned || 0);
+                k_khvtt_p += (d.kpiKHVTT_Pass || 0);
+                k_ntbq_a += (d.kpiNTBQLDA_Assigned || 0);
+                k_ntbq_p += (d.kpiNTBQLDA_Pass || 0);
+                k_bgtsbq_a += (d.kpiBGTSBQLDA_Assigned || 0);
+                k_bgtsbq_p += (d.kpiBGTSBQLDA_Pass || 0);
+                k_ntsap_a += (d.kpiNTSAP_Assigned || 0);
+                k_ntsap_p += (d.kpiNTSAP_Pass || 0);
+                k_bgtssap_a += (d.kpiBGTS_SAP_Assigned || 0);
+                k_bgtssap_p += (d.kpiBGTS_SAP_Pass || 0);
+                k_vhkt_a += (d.kpiVHKT_Assigned || 0);
+                k_vhkt_p += (d.kpiVHKT_Pass || 0);
             });
 
-            document.getElementById('cardTacLapBBNT').innerText = st1.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('cardTacTraBBNT').innerText = st2.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('cardTacNTSAP').innerText = st3.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('cardTacVTA').innerText = st4.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('cardVtaDebtVal').innerText = (sumVtaDebt / 1e9).toFixed(2) + ' Tỷ';
+            document.getElementById('kpiSummary_khvtt_assigned').innerText = 'KH Giao: ' + k_khvtt_a.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_khvtt_pass').innerText = '✓ Đạt: ' + k_khvtt_p.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_khvtt_fail').innerText = '✗ Vướng: ' + (k_khvtt_a - k_khvtt_p).toLocaleString('vi-VN') + ' CT';
 
-            document.getElementById('funnelStep0').innerText = st0.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('funnelStep1').innerText = st1.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('funnelStep2').innerText = st2.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('funnelStep3').innerText = st3.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('funnelStep4').innerText = st4.toLocaleString('vi-VN') + ' CT';
-            document.getElementById('funnelStep5').innerText = st5.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_ntbqlda_assigned').innerText = 'KH Giao: ' + k_ntbq_a.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_ntbqlda_pass').innerText = '✓ Đạt: ' + k_ntbq_p.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_ntbqlda_fail').innerText = '✗ Vướng: ' + (k_ntbq_a - k_ntbq_p).toLocaleString('vi-VN') + ' CT';
+
+            document.getElementById('kpiSummary_bgtsbqlda_assigned').innerText = 'KH Giao: ' + k_bgtsbq_a.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_bgtsbqlda_pass').innerText = '✓ Đạt: ' + k_bgtsbq_p.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_bgtsbqlda_fail').innerText = '✗ Vướng: ' + (k_bgtsbq_a - k_bgtsbq_p).toLocaleString('vi-VN') + ' CT';
+
+            document.getElementById('kpiSummary_ntsap_assigned').innerText = 'KH Giao: ' + k_ntsap_a.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_ntsap_pass').innerText = '✓ Đạt: ' + k_ntsap_p.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_ntsap_fail').innerText = '✗ Vướng: ' + (k_ntsap_a - k_ntsap_p).toLocaleString('vi-VN') + ' CT';
+
+            document.getElementById('kpiSummary_bgtssap_assigned').innerText = 'KH Giao: ' + k_bgtssap_a.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_bgtssap_pass').innerText = '✓ Đạt: ' + k_bgtssap_p.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_bgtssap_fail').innerText = '✗ Vướng: ' + (k_bgtssap_a - k_bgtssap_p).toLocaleString('vi-VN') + ' CT';
+
+            document.getElementById('kpiSummary_vhkt_assigned').innerText = 'KH Giao: ' + k_vhkt_a.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_vhkt_pass').innerText = '✓ Đạt: ' + k_vhkt_p.toLocaleString('vi-VN') + ' CT';
+            document.getElementById('kpiSummary_vhkt_fail').innerText = '✗ Vướng: ' + (k_vhkt_a - k_vhkt_p).toLocaleString('vi-VN') + ' CT';
         }
 
-        function renderPartnerMatrixTable(filteredHDs) {
-            const tbody = document.getElementById('partnerMatrixTbody');
-            const badge = document.getElementById('partnerCountBadge');
+        function renderContractorKPITable(filteredHDs) {
+            const tbody = document.getElementById('contractorKpiTbody');
+            const badge = document.getElementById('kpiPartnerCountBadge');
             if (!tbody) return;
 
             const stats = {};
@@ -604,78 +766,176 @@
                         nhaThau: nt,
                         soHD: 0,
                         soCT: 0,
-                        st1: 0,
-                        st2: 0,
-                        st3: 0,
-                        st4: 0,
-                        st5: 0,
-                        tongTienVTA: 0
+                        soCT_VTA: 0,
+                        tongTienVTA: 0,
+                        kpi_assigned: 0,
+                        kpi_pass: 0,
+                        kpi_details: {
+                            KHVTT: {a: 0, p: 0},
+                            NTBQLDA: {a: 0, p: 0},
+                            BGTSBQLDA: {a: 0, p: 0},
+                            NTSAP: {a: 0, p: 0},
+                            BGTS_SAP: {a: 0, p: 0},
+                            VHKT: {a: 0, p: 0}
+                        }
                     };
                 }
                 const s = stats[nt];
                 s.soHD += 1;
                 s.soCT += (hd.soLuongCT || 0);
-                s.st1 += (hd.soCT_TacLapBBNT || 0);
-                s.st2 += (hd.soCT_TacTraBBNT || 0);
-                s.st3 += (hd.soCT_TacNTSAP || 0);
-                s.st4 += (hd.soCT_TacVTA || 0);
-                s.st5 += (hd.soCT_HoanThanh || 0);
+                s.soCT_VTA += (hd.soCT_CoCongNoVTA || 0);
                 s.tongTienVTA += (hd.tongCongNoVTA || 0);
+                
+                ['KHVTT', 'NTBQLDA', 'BGTSBQLDA', 'NTSAP', 'BGTS_SAP', 'VHKT'].forEach(k => {
+                    const a = (hd['kpi' + k + '_Assigned'] || 0);
+                    const p = (hd['kpi' + k + '_Pass'] || 0);
+                    s.kpi_details[k].a += a;
+                    s.kpi_details[k].p += p;
+                    s.kpi_assigned += a;
+                    s.kpi_pass += p;
+                });
             });
 
-            window.allPartnerMatrixData = Object.values(stats).sort((a, b) => b.st1 + b.st2 - (a.st1 + a.st2) || b.tongTienVTA - a.tongTienVTA);
-            if (badge) badge.innerText = `${window.allPartnerMatrixData.length} Đối Tác`;
+            window.allContractorKpiData = Object.values(stats).sort((a, b) => b.tongTienVTA - a.tongTienVTA || b.soCT - a.soCT);
+            if (badge) badge.innerText = `${window.allContractorKpiData.length} Đối Tác`;
 
-            filterPartnerMatrixTable();
+            filterKpiPartnerTable();
         }
 
-        function filterPartnerMatrixTable() {
-            const tbody = document.getElementById('partnerMatrixTbody');
-            if (!tbody || !window.allPartnerMatrixData) return;
+        function filterKpiPartnerTable() {
+            const tbody = document.getElementById('contractorKpiTbody');
+            if (!tbody || !window.allContractorKpiData) return;
 
-            const searchInput = document.getElementById('partnerMatrixSearch');
+            const searchInput = document.getElementById('kpiPartnerSearch');
             const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
-            const filtered = window.allPartnerMatrixData.filter(d => d.nhaThau.toLowerCase().includes(q));
+            const filtered = window.allContractorKpiData.filter(d => d.nhaThau.toLowerCase().includes(q));
 
             let html = '';
             filtered.forEach((item, index) => {
+                const pct = item.kpi_assigned > 0 ? ((item.kpi_pass / item.kpi_assigned) * 100).toFixed(1) : '0.0';
                 const vtaTy = (item.tongTienVTA / 1e9).toFixed(2);
-                const totalStuck = item.st1 + item.st2 + item.st3 + item.st4;
+                
+                let badgeClass = 'bg-red-100 text-red-700 font-bold';
+                if (parseFloat(pct) >= 50) badgeClass = 'bg-emerald-100 text-emerald-700 font-bold';
+                else if (parseFloat(pct) >= 10) badgeClass = 'bg-amber-100 text-amber-800 font-bold';
 
-                let alertBadge = '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded text-[11px]">✅ Bình Thường</span>';
-                if (item.st1 > 200 || item.st2 > 200) {
-                    alertBadge = '<span class="px-2.5 py-1 bg-red-600 text-white font-black rounded-lg shadow-sm">🔥 RỦI RO RẤT CAO</span>';
-                } else if (totalStuck > 50) {
-                    alertBadge = '<span class="px-2.5 py-1 bg-amber-100 text-amber-900 font-black rounded-lg">⚠️ CẢNH BÁO TẮC</span>';
-                }
+                const fmtK = (kObj) => {
+                    if (kObj.a === 0) return `<span class="text-slate-300 font-normal">-</span>`;
+                    const passColor = kObj.p > 0 ? 'text-emerald-600 font-bold' : 'text-slate-400 font-medium';
+                    return `<span class="${passColor}">${kObj.p.toLocaleString('vi-VN')}</span><span class="text-slate-400">/</span><span class="text-slate-600 font-medium">${kObj.a.toLocaleString('vi-VN')}</span>`;
+                };
 
                 const safeNT = encodeURIComponent(item.nhaThau).replace(/'/g, "%27");
 
                 html += `
-                <tr class="hover:bg-red-50/60 transition text-xs border-b border-gray-100">
+                <tr onclick="filterByPartner(decodeURIComponent('${safeNT}'))" class="hover:bg-red-50/60 transition text-xs border-b border-gray-100 cursor-pointer">
                     <td class="px-2 py-2 text-center font-semibold text-gray-500">${index + 1}</td>
                     <td class="px-3 py-2 font-bold text-gray-900 text-xs">${item.nhaThau}</td>
                     <td class="px-2 py-2 text-center font-medium text-gray-700">${item.soHD}</td>
                     <td class="px-2 py-2 text-center font-extrabold text-slate-800">${(item.soCT || 0).toLocaleString('vi-VN')}</td>
-                    <td class="px-2 py-2 text-center font-black text-red-600 bg-red-50/50">${(item.st1 || 0).toLocaleString('vi-VN')}</td>
-                    <td class="px-2 py-2 text-center font-black text-amber-600 bg-amber-50/50">${(item.st2 || 0).toLocaleString('vi-VN')}</td>
-                    <td class="px-2 py-2 text-center font-black text-blue-600 bg-blue-50/50">${(item.st3 || 0).toLocaleString('vi-VN')}</td>
-                    <td class="px-2 py-2 text-center font-black text-purple-600 bg-purple-50/50">${(item.st4 || 0).toLocaleString('vi-VN')}</td>
-                    <td class="px-2 py-2 text-center font-bold text-emerald-700 bg-emerald-50/50">${(item.st5 || 0).toLocaleString('vi-VN')}</td>
-                    <td class="px-3 py-2 text-right font-extrabold text-red-600 bg-red-50/30">${vtaTy} Tỷ</td>
-                    <td class="px-3 py-2 text-center">${alertBadge}</td>
+                    <td class="px-2 py-2 text-center font-black text-red-600 bg-red-50/40">${(item.soCT_VTA || 0).toLocaleString('vi-VN')}</td>
+                    <td class="px-3 py-2 text-right font-extrabold text-red-600 bg-red-50/40">${vtaTy} Tỷ</td>
+                    <td class="px-2 py-2 text-center border-l border-slate-100">${fmtK(item.kpi_details.KHVTT)}</td>
+                    <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.NTBQLDA)}</td>
+                    <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.BGTSBQLDA)}</td>
+                    <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.NTSAP)}</td>
+                    <td class="px-2 py-2 text-center">${fmtK(item.kpi_details.BGTS_SAP)}</td>
+                    <td class="px-2 py-2 text-center border-r border-slate-100">${fmtK(item.kpi_details.VHKT)}</td>
                     <td class="px-3 py-2 text-center">
-                        <button onclick="filterByPartner(decodeURIComponent('${safeNT}'))" class="px-2.5 py-1 bg-viettel-red hover:bg-viettel-darkred text-white font-bold rounded-lg text-[11px] shadow transition">
-                            <i class="fa-solid fa-magnifying-glass"></i> Soi Nút Thắt
-                        </button>
+                        <span class="px-2 py-0.5 rounded-full text-[11px] ${badgeClass}">${pct}%</span>
                     </td>
                 </tr>
                 `;
             });
 
             if (filtered.length === 0) {
-                html = `<tr><td colspan="12" class="text-center py-6 text-gray-400 italic">Không tìm thấy nhà thầu phù hợp</td></tr>`;
+                html = `<tr><td colspan="13" class="text-center py-6 text-gray-400 italic">Không tìm thấy nhà thầu phù hợp</td></tr>`;
+            }
+
+            tbody.innerHTML = html;
+        }
+
+        function renderKhT9Table(filteredHDs) {
+            const tbody = document.getElementById('khT9Tbody');
+            const badge = document.getElementById('khT9Badge');
+            if (!tbody) return;
+
+            const stats = {};
+            filteredHDs.forEach(hd => {
+                if (!hd.soCT_KHT9 || hd.soCT_KHT9 <= 0) return;
+                let nt = (hd.nhaThau || 'Khác').trim();
+                if (!nt) nt = 'Khác';
+                if (!stats[nt]) {
+                    stats[nt] = {
+                        nhaThau: nt,
+                        soHD: 0,
+                        soCT_KHT9: 0,
+                        congNoVTA: 0,
+                        tonVTTB: 0,
+                        thuHoi: 0,
+                        soCT_CanNhapKho: 0,
+                        canNhapKho: 0
+                    };
+                }
+                const s = stats[nt];
+                s.soHD += 1;
+                s.soCT_KHT9 += (hd.soCT_KHT9 || 0);
+                s.congNoVTA += (hd.congNoVTA_KHT9 || 0);
+                s.tonVTTB += (hd.tonVTTB_KHT9 || 0);
+                s.thuHoi += (hd.thuHoiVTA_KHT9 || 0);
+                s.soCT_CanNhapKho += (hd.soCT_CanNhapKho_KHT9 || 0);
+                s.canNhapKho += (hd.canNhapKho_KHT9 || 0);
+            });
+
+            window.allKhT9Data = Object.values(stats).sort((a, b) => b.congNoVTA - a.congNoVTA || b.soCT_KHT9 - a.soCT_KHT9);
+            if (badge) badge.innerText = `${window.allKhT9Data.length} Nhà Thầu KH T9`;
+
+            filterKhT9Table();
+        }
+
+        function filterKhT9Table() {
+            const tbody = document.getElementById('khT9Tbody');
+            if (!tbody || !window.allKhT9Data) return;
+
+            const searchInput = document.getElementById('khT9Search');
+            const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+            const filtered = window.allKhT9Data.filter(d => d.nhaThau.toLowerCase().includes(q));
+
+            let html = '';
+            filtered.forEach((item, index) => {
+                const vtaTy = (item.congNoVTA / 1e9).toFixed(2);
+                const tonVttbTy = (item.tonVTTB / 1e9).toFixed(2);
+                const thuHoiTy = (item.thuHoi / 1e9).toFixed(2);
+                const nhapKhoTy = (item.canNhapKho / 1e9).toFixed(2);
+                const pctThuHoi = item.tonVTTB > 0 ? ((item.thuHoi / item.tonVTTB) * 100).toFixed(1) : '0.0';
+
+                let badgeClass = 'bg-red-100 text-red-700 font-bold';
+                if (parseFloat(pctThuHoi) >= 50) badgeClass = 'bg-emerald-100 text-emerald-700 font-bold';
+                else if (parseFloat(pctThuHoi) >= 20) badgeClass = 'bg-amber-100 text-amber-800 font-bold';
+
+                const safeNT = encodeURIComponent(item.nhaThau).replace(/'/g, "%27");
+
+                html += `
+                <tr onclick="filterByPartner(decodeURIComponent('${safeNT}'))" class="hover:bg-red-50/60 transition text-xs border-b border-gray-100 cursor-pointer">
+                    <td class="px-2 py-2 text-center font-semibold text-gray-500">${index + 1}</td>
+                    <td class="px-3 py-2 font-bold text-gray-800 text-xs">${item.nhaThau}</td>
+                    <td class="px-2 py-2 text-center font-medium text-gray-700">${item.soHD}</td>
+                    <td class="px-2 py-2 text-center font-bold text-viettel-red bg-red-50/30">${(item.soCT_KHT9 || 0).toLocaleString('vi-VN')}</td>
+                    <td class="px-3 py-2 text-right font-extrabold text-red-600 bg-red-50/40">${vtaTy} Tỷ</td>
+                    <td class="px-3 py-2 text-right font-bold text-slate-700">${tonVttbTy} Tỷ</td>
+                    <td class="px-3 py-2 text-right font-bold text-emerald-600 bg-emerald-50/30">${thuHoiTy} Tỷ</td>
+                    <td class="px-3 py-2 text-right font-bold text-amber-600 bg-amber-50/30">${nhapKhoTy} Tỷ</td>
+                    <td class="px-3 py-2 text-center">
+                        <span class="px-2 py-0.5 rounded-full text-[11px] ${badgeClass}">${pctThuHoi}%</span>
+                    </td>
+                </tr>
+                `;
+            });
+
+            if (filtered.length === 0) {
+                html = `<tr><td colspan="9" class="text-center py-6 text-gray-400 italic">Không tìm thấy nhà thầu phù hợp</td></tr>`;
             }
 
             tbody.innerHTML = html;
@@ -785,15 +1045,12 @@
                 const tr = document.createElement('tr');
                 tr.className = 'hover:bg-slate-50 transition border-b border-slate-100';
 
-                let bottleneckPill = '<span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-xs">🟢 100% Hoàn Thành</span>';
-                if ((d.soCT_TacLapBBNT || 0) > 0) {
-                    bottleneckPill = `<span class="px-2.5 py-1 bg-red-100 text-red-700 font-black rounded-lg text-xs">🔴 Tắc ${d.soCT_TacLapBBNT} CT BBNT</span>`;
-                } else if ((d.soCT_TacTraBBNT || 0) > 0) {
-                    bottleneckPill = `<span class="px-2.5 py-1 bg-amber-100 text-amber-900 font-black rounded-lg text-xs">🟡 Tắc ${d.soCT_TacTraBBNT} CT Trả BBNT</span>`;
-                } else if ((d.soCT_TacNTSAP || 0) > 0) {
-                    bottleneckPill = `<span class="px-2.5 py-1 bg-blue-100 text-blue-900 font-black rounded-lg text-xs">🟠 Tắc ${d.soCT_TacNTSAP} CT nhập SAP</span>`;
-                } else if ((d.soCT_TacVTA || 0) > 0) {
-                    bottleneckPill = `<span class="px-2.5 py-1 bg-purple-100 text-purple-900 font-black rounded-lg text-xs">🔵 Tắc ${d.soCT_TacVTA} CT Tồn VTA</span>`;
+                let kpiBadge = '<span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-xs">🟢 KPI Đạt (VTA Clean)</span>';
+                if (d.tongCongNoVTA > 0) {
+                    kpiBadge = `<span class="px-2.5 py-1 bg-amber-100 text-amber-900 font-black rounded-lg text-xs">⚠️ Vướng VTA (${d.soCT_CoCongNoVTA || d.soLuongCT} CT)</span>`;
+                }
+                if (d.isWarningPre2025) {
+                    kpiBadge = `<span class="px-2.5 py-1 bg-red-600 text-white font-black rounded-lg text-xs shadow-sm">🔥 CHI PHÍ < 2025</span>`;
                 }
 
                 const safeSoHD = encodeURIComponent(d.soHD).replace(/'/g, "%27");
@@ -809,10 +1066,10 @@
                     <td class="p-3 border-r text-center font-extrabold ${d.namKy < 2025 && d.isChiPhi ? 'text-viettel-red' : 'text-slate-700'}">${d.namKy}</td>
                     <td class="p-3 border-r font-semibold text-slate-800">${d.nhaThau}</td>
                     <td class="p-3 border-r text-right font-black text-amber-900 bg-amber-50/40">${(d.tongCongNoVTA / 1000000).toLocaleString()} triệu</td>
-                    <td class="p-3 border-r text-center">${bottleneckPill}</td>
+                    <td class="p-3 border-r text-center">${kpiBadge}</td>
                     <td class="p-3 text-center">
                         <button onclick="openCtModal('${safeSoHD}')" class="px-3 py-1 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-xl shadow transition inline-flex items-center gap-1.5">
-                            <i class="fa-solid fa-eye text-red-400"></i> Xem CT & Timeline
+                            <i class="fa-solid fa-calculator text-red-400"></i> Tổng Hợp KPI HĐ
                         </button>
                     </td>
                 `;
@@ -827,64 +1084,78 @@
 
             document.getElementById('modalSoHD').innerText = 'Số HĐ: ' + hd.soHD;
             document.getElementById('modalNguonVon').innerText = hd.nguonVon;
-            document.getElementById('modalSubInfo').innerText = 'Nhà thầu: ' + hd.nhaThau + ' | Gồm ' + hd.soLuongCT + ' Công Trình | Tồn Công Nợ VTA: ' + ((hd.tongCongNoVTA || 0)/1000000).toLocaleString() + ' triệu VNĐ';
+            document.getElementById('modalSubInfo').innerText = 'Nhà thầu: ' + hd.nhaThau + ' | Gồm ' + hd.soLuongCT + ' Công Trình | Tồn Công Nợ VTA: ' + ((hd.tongCongNoVTA || 0)/1000000).toLocaleString('vi-VN') + ' triệu VNĐ';
 
-            const tbody = document.getElementById('modalCtBody');
-            tbody.innerHTML = '';
+            // BLOCK 1: Render 6 KPI Summary Table for this contract
+            const kpiTbody = document.getElementById('modalKpiTbody');
+            kpiTbody.innerHTML = '';
 
-            const ctList = hd.danhSachCT || [];
-            if (ctList.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="11" class="text-center py-6 text-slate-400 italic">Chưa có thông tin công trình chi tiết cho hợp đồng này</td></tr>';
-            } else {
-                ctList.forEach((ct) => {
-                    const tr = document.createElement('tr');
-                    tr.className = 'border-b border-slate-100 hover:bg-slate-50 text-xs';
+            const kpis = [
+                { name: '1. KH VTT (Chấm điểm GĐ)', a: hd.kpiKHVTT_Assigned || 0, p: hd.kpiKHVTT_Pass || 0 },
+                { name: '2. NT BQLDA (Nghiệm thu BQLDA)', a: hd.kpiNTBQLDA_Assigned || 0, p: hd.kpiNTBQLDA_Pass || 0 },
+                { name: '3. BGTS BQLDA (Bàn giao TS BQLDA)', a: hd.kpiBGTSBQLDA_Assigned || 0, p: hd.kpiBGTSBQLDA_Pass || 0 },
+                { name: '4. Nghiệm thu SAP', a: hd.kpiNTSAP_Assigned || 0, p: hd.kpiNTSAP_Pass || 0 },
+                { name: '5. BGTS SAP (Bàn giao TS SAP)', a: hd.kpiBGTS_SAP_Assigned || 0, p: hd.kpiBGTS_SAP_Pass || 0 },
+                { name: '6. VHKT (Vận hành kỹ thuật)', a: hd.kpiVHKT_Assigned || 0, p: hd.kpiVHKT_Pass || 0 }
+            ];
 
-                    const kpiBadge = (isAssigned, isPass) => {
-                        if (!isAssigned) return '<span class="text-slate-300 font-bold">-</span>';
-                        return isPass 
-                            ? '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded text-[10px]">✓ ĐẠT</span>' 
-                            : '<span class="px-2 py-0.5 bg-rose-100 text-rose-800 font-bold rounded text-[10px]">✗ VƯỚNG</span>';
-                    };
+            kpis.forEach(k => {
+                const fail = k.a - k.p;
+                const pct = k.a > 0 ? ((k.p / k.a) * 100).toFixed(1) : '0.0';
+                
+                let pctClass = 'text-gray-400 font-medium';
+                if (k.a > 0) {
+                    if (parseFloat(pct) >= 100) pctClass = 'text-emerald-700 font-extrabold bg-emerald-50 px-2 py-0.5 rounded';
+                    else if (parseFloat(pct) > 0) pctClass = 'text-amber-700 font-extrabold bg-amber-50 px-2 py-0.5 rounded';
+                    else pctClass = 'text-rose-700 font-extrabold bg-rose-50 px-2 py-0.5 rounded';
+                }
 
-                    let bottleneckBadge = `<span class="px-2 py-0.5 bg-slate-100 text-slate-600 font-bold rounded">${ct.stageLabel || ''}</span>`;
-                    if (ct.stageCode === '1_TAC_LAP_BBNT') {
-                        bottleneckBadge = `<span class="px-2 py-0.5 bg-red-100 text-red-800 font-black rounded">🔴 Tắc Lập BBNT</span>`;
-                    } else if (ct.stageCode === '2_TAC_TRA_BBNT') {
-                        bottleneckBadge = `<span class="px-2 py-0.5 bg-amber-100 text-amber-900 font-black rounded">🟡 Tắc Trả BBNT</span>`;
-                    } else if (ct.stageCode === '3_TAC_NT_SAP') {
-                        bottleneckBadge = `<span class="px-2 py-0.5 bg-blue-100 text-blue-900 font-black rounded">🟠 Tắc Nhập SAP</span>`;
-                    } else if (ct.stageCode === '4_TAC_VTA') {
-                        bottleneckBadge = `<span class="px-2 py-0.5 bg-purple-100 text-purple-900 font-black rounded">🔵 Tắc Tồn VTA</span>`;
-                    } else if (ct.stageCode === '5_HOAN_THANH') {
-                        bottleneckBadge = `<span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded">🟢 Đã Hoàn Thành</span>`;
-                    }
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-slate-100 hover:bg-slate-50 text-xs';
+                tr.innerHTML = `
+                    <td class="p-2.5 font-bold text-slate-800">${k.name}</td>
+                    <td class="p-2.5 text-center font-bold text-slate-700">${k.a.toLocaleString('vi-VN')} CT</td>
+                    <td class="p-2.5 text-center font-extrabold text-emerald-600 bg-emerald-50/40">${k.p.toLocaleString('vi-VN')} CT</td>
+                    <td class="p-2.5 text-center font-black text-rose-600 bg-rose-50/40">${fail.toLocaleString('vi-VN')} CT</td>
+                    <td class="p-2.5 text-center"><span class="${pctClass}">${k.a > 0 ? pct + '%' : '-'}</span></td>
+                `;
+                kpiTbody.appendChild(tr);
+            });
 
-                    // Stepper Flow visual
-                    const sTC = ct.isThiCongXong ? '<span class="text-emerald-600 font-bold">TC:✓</span>' : '<span class="text-slate-400">TC:⋯</span>';
-                    const sBBNT = ct.hasBBNT ? '<span class="text-emerald-600 font-bold">BBNT:✓</span>' : '<span class="text-red-500 font-black">BBNT:✗</span>';
-                    const sTRA = ct.hasTraBBNT ? '<span class="text-emerald-600 font-bold">Trả:✓</span>' : '<span class="text-amber-600 font-bold">Trả:✗</span>';
-                    const sSAP = ct.hasNTSAP ? '<span class="text-emerald-600 font-bold">SAP:✓</span>' : '<span class="text-blue-600 font-bold">SAP:✗</span>';
-                    const sVTA = ct.isVtaClean ? '<span class="text-emerald-600 font-bold">VTA:✓</span>' : '<span class="text-purple-600 font-bold">VTA:CÓ</span>';
+            // BLOCK 2: Timeline Stage Breakdown
+            document.getElementById('modalSt1').innerText = (hd.soCT_TacLapBBNT || 0).toLocaleString('vi-VN') + ' CT';
+            document.getElementById('modalSt2').innerText = (hd.soCT_TacTraBBNT || 0).toLocaleString('vi-VN') + ' CT';
+            document.getElementById('modalSt3').innerText = (hd.soCT_TacNTSAP || 0).toLocaleString('vi-VN') + ' CT';
+            document.getElementById('modalSt4').innerText = (hd.soCT_TacVTA || 0).toLocaleString('vi-VN') + ' CT';
+            document.getElementById('modalSt5').innerText = (hd.soCT_HoanThanh || 0).toLocaleString('vi-VN') + ' CT';
 
-                    const timelineStepper = `<div class="flex items-center justify-center gap-1 text-[11px]">${sTC}➔${sBBNT}➔${sTRA}➔${sSAP}➔${sVTA}</div>`;
+            // BLOCK 3: Project Type Breakdown inside contract
+            const loaiTbody = document.getElementById('modalLoaiCtTbody');
+            loaiTbody.innerHTML = '';
 
-                    tr.innerHTML = `
-                        <td class="p-2 border-r font-bold text-slate-900">${ct.maCT || ''}</td>
-                        <td class="p-2 border-r text-slate-700">${ct.loaiCT || ''}</td>
-                        <td class="p-2 border-r text-center">${timelineStepper}</td>
-                        <td class="p-2 border-r text-center">${bottleneckBadge}</td>
-                        <td class="p-2 border-r text-right font-bold text-amber-900 bg-amber-50/40">${((ct.vtaVal || 0)/1000000).toLocaleString()} tr</td>
-                        <td class="p-1 border-r text-center">${kpiBadge(ct.assigned_khvtt, ct.pass_khvtt)}</td>
-                        <td class="p-1 border-r text-center">${kpiBadge(ct.assigned_ntbqlda, ct.pass_ntbqlda)}</td>
-                        <td class="p-1 border-r text-center">${kpiBadge(ct.assigned_bgtsbqlda, ct.pass_bgtsbqlda)}</td>
-                        <td class="p-1 border-r text-center">${kpiBadge(ct.assigned_ntsap, ct.pass_ntsap)}</td>
-                        <td class="p-1 border-r text-center">${kpiBadge(ct.assigned_bgtssap, ct.pass_bgtssap)}</td>
-                        <td class="p-1 text-center">${kpiBadge(ct.assigned_vhkt, ct.pass_vhkt)}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            }
+            const loaiMap = {};
+            (hd.danhSachCT || []).forEach(ct => {
+                const l = ct.loaiCT || 'Chưa phân loại';
+                if (!loaiMap[l]) loaiMap[l] = { count: 0, vtaVal: 0, clean: 0, dirty: 0 };
+                loaiMap[l].count++;
+                loaiMap[l].vtaVal += (ct.vtaVal || 0);
+                if (ct.isVtaClean) loaiMap[l].clean++;
+                else loaiMap[l].dirty++;
+            });
+
+            Object.keys(loaiMap).sort((a,b) => loaiMap[b].count - loaiMap[a].count).forEach(loaiName => {
+                const item = loaiMap[loaiName];
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-slate-100 hover:bg-slate-50 text-xs';
+                tr.innerHTML = `
+                    <td class="p-2 font-bold text-slate-800">${loaiName}</td>
+                    <td class="p-2 text-center font-bold text-slate-700">${item.count.toLocaleString('vi-VN')} CT</td>
+                    <td class="p-2 text-right font-extrabold text-amber-900 bg-amber-50/40">${(item.vtaVal / 1e6).toLocaleString('vi-VN')} tr</td>
+                    <td class="p-2 text-center font-extrabold text-emerald-700 bg-emerald-50/40">${item.clean.toLocaleString('vi-VN')} CT</td>
+                    <td class="p-2 text-center font-black text-rose-700 bg-rose-50/40">${item.dirty.toLocaleString('vi-VN')} CT</td>
+                `;
+                loaiTbody.appendChild(tr);
+            });
 
             document.getElementById('ctModal').classList.remove('hidden');
         }
@@ -1094,18 +1365,33 @@ Mẹo: Anh cũng có thể dùng nút Nạp File Excel để chọn file trực 
                         soLuongCT: 0,
                         tongCongNoVTA: 0,
                         tongGiaTriTon: 0,
+                        soCT_CoCongNoVTA: 0,
                         soCT_DangTC: 0,
                         soCT_TacLapBBNT: 0,
                         soCT_TacTraBBNT: 0,
                         soCT_TacNTSAP: 0,
                         soCT_TacVTA: 0,
                         soCT_HoanThanh: 0,
+                        kpiKHVTT_Assigned: 0, kpiKHVTT_Pass: 0,
+                        kpiNTBQLDA_Assigned: 0, kpiNTBQLDA_Pass: 0,
+                        kpiBGTSBQLDA_Assigned: 0, kpiBGTSBQLDA_Pass: 0,
+                        kpiNTSAP_Assigned: 0, kpiNTSAP_Pass: 0,
+                        kpiBGTS_SAP_Assigned: 0, kpiBGTS_SAP_Pass: 0,
+                        kpiVHKT_Assigned: 0, kpiVHKT_Pass: 0,
                         danhSachCT: []
                     };
                 }
                 hdDict[key].soLuongCT++;
                 hdDict[key].tongCongNoVTA += ct.vtaVal;
                 hdDict[key].tongGiaTriTon += ct.giaTri;
+                if (!ct.isVtaClean) hdDict[key].soCT_CoCongNoVTA++;
+
+                if (ct.assigned_khvtt) { hdDict[key].kpiKHVTT_Assigned++; if (ct.pass_khvtt) hdDict[key].kpiKHVTT_Pass++; }
+                if (ct.assigned_ntbqlda) { hdDict[key].kpiNTBQLDA_Assigned++; if (ct.pass_ntbqlda) hdDict[key].kpiNTBQLDA_Pass++; }
+                if (ct.assigned_bgtsbqlda) { hdDict[key].kpiBGTSBQLDA_Assigned++; if (ct.pass_bgtsbqlda) hdDict[key].kpiBGTSBQLDA_Pass++; }
+                if (ct.assigned_ntsap) { hdDict[key].kpiNTSAP_Assigned++; if (ct.pass_ntsap) hdDict[key].kpiNTSAP_Pass++; }
+                if (ct.assigned_bgtssap) { hdDict[key].kpiBGTS_SAP_Assigned++; if (ct.pass_bgtssap) hdDict[key].kpiBGTS_SAP_Pass++; }
+                if (ct.assigned_vhkt) { hdDict[key].kpiVHKT_Assigned++; if (ct.pass_vhkt) hdDict[key].kpiVHKT_Pass++; }
                 
                 if (ct.stageCode === '0_DANG_THI_CONG') hdDict[key].soCT_DangTC++;
                 else if (ct.stageCode === '1_TAC_LAP_BBNT') hdDict[key].soCT_TacLapBBNT++;
@@ -1144,8 +1430,8 @@ Mẹo: Anh cũng có thể dùng nút Nạp File Excel để chọn file trực 
         function exportToExcel() {
             const ws = XLSX.utils.json_to_sheet(filteredHDList);
             const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "CongNo_VTA_Timeline_Bottlenecks");
-            XLSX.writeFile(wb, "Bao_Cao_Viettel_NutThat_Timeline_KPI.xlsx");
+            XLSX.utils.book_append_sheet(wb, ws, "CongNo_VTA_Summary");
+            XLSX.writeFile(wb, "Bao_Cao_Viettel_ConSo_HợpĐồng_KPI.xlsx");
         }
 
         window.onload = function() {
