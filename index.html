@@ -300,12 +300,12 @@
                     <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
                         <span class="block font-bold text-blue-900 text-[11px]">🟠 Tắc Nhập SAP</span>
                         <div class="text-lg font-black text-blue-700 mt-1" id="modalSt3">0 CT</div>
-                        <span class="text-[10px] text-blue-800 block">Yêu cầu BQLDA nhập SAP</span>
+                        <span class="text-[10px] text-blue-800 block">Ban Hoàn công nhập NT BGTS SAP</span>
                     </div>
                     <div class="p-3 bg-purple-50 rounded-xl border border-purple-200">
                         <span class="block font-bold text-purple-900 text-[11px]">🔵 Tắc Tồn VTA</span>
                         <div class="text-lg font-black text-purple-700 mt-1" id="modalSt4">0 CT</div>
-                        <span class="text-[10px] text-purple-800 block">Hoàn ứng/Thu hồi VTA</span>
+                        <span class="text-[10px] text-purple-800 block">Trả vật tư A dư thừa về kho</span>
                     </div>
                     <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-300">
                         <span class="block font-bold text-emerald-900 text-[11px]">🟢 Hoàn Thành KPI</span>
@@ -536,11 +536,11 @@
                         </div>
                         <div class="flex justify-between items-center bg-blue-100/70 p-2 rounded-lg text-blue-900 font-medium">
                             <span>🟠 <b>Tắc 3 (Chưa lên SAP):</b> ${st3.toLocaleString('vi-VN')} CT</span>
-                            <span class="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded font-bold">Đốc BQLDA nhập SAP</span>
+                            <span class="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded font-bold">Ban Hoàn công nhập SAP</span>
                         </div>
                         <div class="flex justify-between items-center bg-purple-100/70 p-2 rounded-lg text-purple-900 font-medium">
                             <span>🔵 <b>Tắc 4 (Tồn VTA chưa giải tỏa):</b> ${st4.toLocaleString('vi-VN')} CT</span>
-                            <span class="text-[10px] bg-purple-600 text-white px-1.5 py-0.5 rounded font-bold">Lập hồ sơ hoàn ứng</span>
+                            <span class="text-[10px] bg-purple-600 text-white px-1.5 py-0.5 rounded font-bold">Trả vật tư về kho</span>
                         </div>
                     </div>
                 </div>
@@ -673,10 +673,10 @@
                     actionProposal = `<span class="text-amber-800 font-bold">⚡ Đóng dấu 2 bên & bàn giao BBNT về Ban ĐB</span>`;
                 } else if ((d.soCT_TacNTSAP || 0) > 0) {
                     bottleneckBadge = `<span class="px-2.5 py-0.5 bg-blue-100 text-blue-900 font-black rounded">🟠 Tắc ${d.soCT_TacNTSAP} CT nhập SAP</span>`;
-                    actionProposal = `<span class="text-blue-800 font-bold">⚡ Yêu cầu BQLDA nhập nghiệm thu tài sản SAP</span>`;
+                    actionProposal = `<span class="text-blue-800 font-bold">⚡ Đốc Ban Hoàn công nhập nghiệm thu BGTS SAP</span>`;
                 } else if ((d.soCT_TacVTA || 0) > 0) {
                     bottleneckBadge = `<span class="px-2.5 py-0.5 bg-purple-100 text-purple-900 font-black rounded">🔵 Tắc ${d.soCT_TacVTA} CT Tồn VTA</span>`;
-                    actionProposal = `<span class="text-purple-800 font-bold">⚡ Lập chứng từ thu hồi/hoàn ứng VTA</span>`;
+                    actionProposal = `<span class="text-purple-800 font-bold">⚡ Trả vật tư A dư thừa về kho</span>`;
                 }
 
                 const safeSoHD = encodeURIComponent(d.soHD).replace(/'/g, "%27");
